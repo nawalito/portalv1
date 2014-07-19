@@ -69,7 +69,7 @@ public class PanelController {
         
         succes = this.getUserDao().getUserData(1,username);
         userdata = new UserSessionData(succes);
-        view=resource.getLayoutheader()+"user/panel.vm";
+        view=resource.getDirViews()+"user/panel.vm";
         ModelAndView x=null;
         
         if(request.isUserInRole("ROLE_ADMIN") || request.isUserInRole("ROLE_ADMIN2")){
