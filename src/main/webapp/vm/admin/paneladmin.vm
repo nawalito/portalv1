@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>${title}</title>
+	
+	<!-- Para inclir el Encabezado en la pagina-->
+	#include("${layoutheader}")
+	<!--Aqui Incluir css del aplicativo-->
+	
+	<!--Termina css del aplicativo-->
+	
+	
+	<!-- Para inclir el menu en la pagina-->
+    
+	<!-- HTML5 Shim, for IE6-IE8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+</head>
+	
+<body>
+	<div id="top-nav" class="container">
+		<h1>${title}</h1>
+		
+		<h2>Bienvenido: ${username}</h2>
+	</div>
+	
+	<br>
+	
+	<!--Inicia div para el contenido de la pagina-->
+    <div id="lienzo" class="lienzo">
+		<div id="content1" class="container">
+			
+			
+			<a href="../j_spring_security_logout">LogOut</a>
+			
+			
+		</div><!--content1-->
+	</div><!--lienzo-->
+	
+	<!-- Para inclir el Pie de pagin en la pagina-->
+	#include("${layoutfooter}")
+	
+	<!--Aqui incluir css del Aplicativo-->
+	
+	
+</body>
+</html>

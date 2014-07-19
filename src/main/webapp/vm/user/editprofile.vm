@@ -1,0 +1,42 @@
+<div class="row section-title">
+    <div class="col-md-4 title">
+        <h2>Actualizar informaci&oacute;n</h2> 
+    </div>
+</div>
+<div class="container ">
+    <div class="row">
+<hr>
+        <div class="col-sm-5">
+            <div class="section-content1">
+                <form name="updatep" method="post" action="edit_profile" role="form" class="form-horizontal">
+                    #springBind("userp")
+                    #springFormHiddenInput("userp.id" " ")
+
+                    <div class="form-group ">
+                            <label for="email" class="col-sm-12">Email</label>
+                            <div class="col-sm-12 ">
+                                    #springFormInput("userp.email" "class='form-control' autofocus placeholder='Ingresar Email'")
+                                    #springShowErrors("<br />", "error")
+                            </div>
+                    </div>
+
+                    <div class="form-group ">
+                            <label for="alias" class="col-sm-12">Alias</label>
+                            <div class="col-sm-12 ">
+                                    #springFormInput("userp.alias" "class='form-control' placeholder='Ingresar Alias'")
+                                    #springShowErrors("<br />", "error")
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                            <div class="col-sm-12 text-right  ">
+                                <a class="btn btn-success" href="profile">Cancelar</a>
+                                <input type="submit" class="btn btn-success" value="Guardar"> </button>
+                            </div>
+                    </div>
+            </form>
+			
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="row ">
+    <div class="container">
+        <footer> 
+            2014 Perseo&#8482;. Todos los derechos reservados &nbsp;&nbsp;<a target="_blank" href="#">Privacidad</a> &nbsp;&nbsp;<a target="_blank" href="#">T&eacute;rminos de uso</a> &nbsp;&nbsp;<a target="_blank" href="../pdf/PERSEO.pdf">Descargar Brochure</a> &nbsp;&nbsp;<a target="_blank" href="#">Contacto</a>
+            <!-- &copy; Copyright - Perseo - 
+            <a href="#"> Soporte T&eacutecnico</a> -->
+        </footer>
+    </div>
+</div>
+<script src="../js/plugins/bootstrap/bootstrap3.1.1.min.js"></script>
+<script src="../js/implements/requestservice/request.js"></script>

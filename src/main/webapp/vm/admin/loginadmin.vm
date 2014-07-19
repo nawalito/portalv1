@@ -1,0 +1,62 @@
+<!--
+//*******************************
+//* Developed by: gpmarsan      *
+//* Email:gpmarsan@gmail.com    *
+//* Date:05/24/2013             *
+//*******************************
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+    <meta charset="utf-8">
+    <title>${title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicio de sesion perseo">
+    <meta name="author" content="gpmarsan@gmail.com">
+    
+	<!-- Para inclir el Encabezado en la pagina-->
+	#include("${layoutheader}")
+	<!--Aqui Incluir css del aplicativo-->
+	
+	<!--Termina css del aplicativo-->
+	
+	
+	<!-- Para inclir el menu en la pagina-->
+    
+	<!-- HTML5 Shim, for IE6-IE8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+</head>
+
+<body>
+	
+	<div class="container"><h2>Iniciar Sesi&oacute;n de Administrador</h2></div>
+	
+	<div id="wrap">
+		<div class="container">
+			<form class="form-horizontal well form-signin" action="../j_spring_security_check" method="post" role="form">
+				<input type="text" class="form-control" id="j_username" name="j_username" placeholder="Usuario">
+				<br>
+				<input type="password" class="form-control" name="j_password" id="j_password" placeholder="Contrase&ntilde;a">
+				<button type="submit" id="submit" class="btn btn-large btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Entrar</button>
+			</form>
+		</div> <!-- /container -->
+    </div>
+    
+	
+	<!-- Footer ================================================== -->
+	<div class="footer" id="footer">
+		  <div class="container">
+			<p class="text-muted credit">© Perseo 2014. Derechos Reservados</p>
+		  </div>
+	</div>
+	
+	#include("${layoutfooter}")
+	
+	<!--Aqui incluir js del Aplicativo-->
+	
+</body>
+</html>
+

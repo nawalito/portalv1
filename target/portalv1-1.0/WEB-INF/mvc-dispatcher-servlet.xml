@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans" xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+    
+    <context:component-scan base-package="com.ms.portalv1.controllers" />
+    <!-- Process annotations on registered beans like @Autowired... -->
+    <context:annotation-config/>
+    <!--<mvc:annotation-driven />-->
+    
+    <!-- Property Configurator -->
+    <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>/WEB-INF/config.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!-- End Property Configurator -->
+    
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver"/>
+    
+    <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/"/>
+    </bean>
+    
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver" >
+        <property name="prefix">
+            <value>/vm/</value>
+        </property>
+        <property name="suffix">
+            <value>.vm</value>
+        </property>
+    </bean>
+    
+    <bean id="jdbcTemplateSpring" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="dataSource" />
+        </constructor-arg>
+    </bean>
+    
+    <!-- Data -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driver.class.name}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+    
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"></bean>
+    
+    
+    <bean name="daoUser" class="com.ms.portalv1.springdaos.UserSpringDao">
+         <property name="jdbcTemplate" ref="jdbcTemplateSpring" />
+    </bean>
+    
+    <bean name="daoGral" class="com.ms.portalv1.springdaos.GralSpringDao">
+         <property name="jdbcTemplate" ref="jdbcTemplateSpring" />
+    </bean>
+    
+    <bean name="daoRequest" class="com.ms.portalv1.springdaos.RequestSpringDao">
+         <property name="jdbcTemplate" ref="jdbcTemplateSpring" />
+    </bean>
+    
+    <bean class="com.ms.portalv1.validators.UserValidator" />
+    <bean class="com.ms.portalv1.validators.UserActivateValidator" />
+    <bean class="com.ms.portalv1.validators.UserProfileValidator" />
+    <bean class="com.ms.portalv1.validators.UserProfilePasswdValidator" />
+    <bean class="com.ms.portalv1.validators.ServiceRequestValidator" />
+    
+    
+    
+    
+    <!-- Register the Customer.properties -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+            <property name="basename" value="Portal" />
+            <property name="useCodeAsDefaultMessage" value="true" />
+    </bean>
+    
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager"/>
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <!-- Turn off working out content type based on URL file extension, should fall back to looking at the Accept headers -->
+        <property name="favorPathExtension" value="false" />
+    </bean>
+</beans>

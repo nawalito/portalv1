@@ -1,0 +1,156 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-7"><h2>Solicitud de servicio</h2></div>
+                    <div class="col-sm-5 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
+                </div>
+                
+                    <div class="row">
+                        <hr>
+                        #springBind("detail")
+                        <form name="search" method="get" action="service_detail" role="form" class="form-horizontal" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="folio" class="col-sm-1 control-label">Folio</label>
+                                <div class="col-sm-4">
+                                    #springFormInput("detail.folio" "class='form-control' autofocus placeholder='folio'")
+                                    <!-- <input type="text" class="form-control" id="folio" name="folio" autofocus placeholder="folio"> -->
+                                </div>
+                                <div class="col-sm-3">
+                                    <a data-toggle="modal"  data-target="#verifyUser" href="#service_detail" class="btn btn-info">Buscar</a>
+                                </div>
+                                <div class="col-sm-3">
+                                    <a data-toggle="modal"  data-target="#verifyUser" href="#services/send_request.json" class="btn btn-info" >Solicitar folios</a>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
+					
+                    <div class="row">
+                        <form name="detail" method="get" action="servicerequest_renew" role="form" class="form-horizontal">
+							
+							#springFormHiddenInput("detail.folio" " ")
+							
+                            <div class="form-group">
+                                <label for="codearea" class="col-sm-2 control-label">Status</label>
+                                <div class="col-sm-6"><label class="control-label">${detail.status}</label></div>
+                            </div>
+							
+                            <div class="form-group">
+                                <label for="country" class="col-sm-2     control-label">Pa&iacute;s</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.country" "class='form-control' autofocus placeholder='Pa&iacute;s' readonly")
+                                </div>
+
+                                <label for="codecountry" class="col-sm-3 control-label">C&oacute;digo de Pa&iacute;s</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.codecountry" "class='form-control' placeholder='C&oacute;digo de Pa&iacute;s' readonly")
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="codearea" class="col-sm-2 control-label">C&oacute;digo de Area</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.codeArea" "class='form-control' placeholder='C&oacute;digo de Area' readonly")
+                                </div>
+                                
+                                <label for="codearea" class="col-sm-3 control-label">Tel&eacute;fono</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.phone" "class='form-control' placeholder='Tel&eacute;fono' readonly")
+                                </div>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label for="codearea" class="col-sm-2 control-label">Tipo de Licencia</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.typeLicense" "class='form-control' placeholder='Tipo de Licencia' readonly")
+                                </div>
+                                
+                                <label for="codearea" class="col-sm-3 control-label">Cantidad de Mensajes</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.totalMsj" "class='form-control' placeholder='Total Mensajes' readonly")
+                                </div>
+
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="codearea" class="col-sm-2 control-label">Fecha del Contrato</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.contractDate" "class='form-control' placeholder='Fecha Contrato' readonly")
+                                </div>
+
+                                <label for="codearea" class="col-sm-3 control-label">Fecha de vencimiento</label>
+                                <div class="col-sm-3">
+                                    #springFormInput("detail.expirationDate" "class='form-control' placeholder='Fecha Vencimiento' readonly")
+                                </div>
+                            </div>
+                            
+	
+                            <div class="form-group">
+                                <hr>
+                                <div class="col-sm-12 text-right">
+									
+                                    #if ($data.statuscode==0)
+										<a data-toggle="modal"  data-target="#verifyUser" href="#services/canceled.json" class="btn btn-info" > Cancelar </a>
+                                    #end
+									
+                                    #if ($data.statuscode==1)
+										<a data-toggle="modal"  data-target="#verifyUser" href="#services/suspend.json" class="btn btn-info" > Suspender </a>
+                                    #end
+                                    
+                                    #if ($data.statuscode==2)
+										<a data-toggle="modal"  data-target="#verifyUser" href="#services/reactivate.json" class="btn btn-info" > Reactivar </a>
+                                    #end
+                                    
+                                    #if ($data.statuscode==3)
+										<!--<a data-toggle="modal"  data-target="#verifyUser" href="#services/renew.json" class="btn btn-info" > Renovar </a>-->
+										<input type="submit" class="btn btn-info" value="Renovar">
+                                    #end
+                                    
+                                    
+                                    <br/>&nbsp;
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-modal-sm" id="verifyUser"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="validateUser" action="services/verify.json" class="form-horizontal" onSubmit="return false">
+                <div class="alert alert-success" role="alert"></div>
+                <input type="hidden" name="action" value="verify-user">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="form-group">
+                        <label for="user" class="col-sm-12 ">Usuario</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Usuario">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-sm-12 ">Contrase&ntildea</label>
+                        <div class="col-sm-12">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Contrase&ntilde;a">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnacept" aria-hidden="true">Aceptar</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

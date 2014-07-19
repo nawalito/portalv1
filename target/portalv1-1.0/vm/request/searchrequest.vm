@@ -1,0 +1,65 @@
+<div class="container ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-7"><h2>Solicitud de servicio</h2></div>
+                    <div class="col-sm-5 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
+                </div>
+                
+                <div class="row">
+                        <hr>
+                        <form name="search" method="get" action="service_detail" role="form" class="form-horizontal" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="folio" class="col-sm-1 control-label">Folio</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="folio" name="folio" autofocus placeholder="Folio">
+                                </div>
+                                <div class="col-sm-3">
+                                    <a data-toggle="modal"  data-target="#verifyUser" href="#service_detail" class="btn btn-info">Buscar</a>
+                                </div>
+                                <div class="col-sm-3">
+                                    <a data-toggle="modal"  data-target="#verifyUser" href="#services/send_request.json" class="btn btn-info" >Solicitar folios</a>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-modal-sm" id="verifyUser"  tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <form id="validateUser" action="services/verify.json" class="form-horizontal" onSubmit="return false">
+                <input type="hidden" name="action" value="verify-user">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+                </div>
+                <div class="modal-body" >
+                <div class="alert hidden alert-success" role="alert"></div>
+                    <div class="form-group">
+                        <label for="user" class="col-sm-12 ">Usuario</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="user" name="user" placeholder="Usuario" autofocus>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="col-sm-12 ">Contrase&ntildea</label>
+                        <div class="col-sm-12">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Contrase&ntilde;a">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnacept" aria-hidden="true">Aceptar</button> 
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
