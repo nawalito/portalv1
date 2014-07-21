@@ -1,0 +1,48 @@
+<div class="row section-title">
+    <div class="col-md-4 title">&nbsp;</div>
+</div>
+<div class="container ">
+<br/>
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="section-content">
+                <h2>Cambiar Contrase&ntilde;a</h2> 
+                <form name="userpwd" method="post" action="edit_passwd" role="form" class="form-horizontal">
+                    #springBind("userpwd")
+                    #springFormHiddenInput("userpwd.id" " ")
+
+                    <div class="form-group ">
+                        <label for="currentPass" class="col-sm-12">Contrase&ntilde;a Actual</label>
+                        <div class="col-sm-12 ">
+                                #springFormPasswordInput("userpwd.currentPass" "class='form-control' autofocus placeholder='Ingresar Password'")
+                                #springShowErrors("<br />", "error")
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="newPass" class="col-sm-12">Nueva Contrase&ntilde;a</label>
+                        <div class="col-sm-12 ">
+                                #springFormPasswordInput("userpwd.newPass" "class='form-control' placeholder='Ingresar Password'")
+                                #springShowErrors("<br />", "error")
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="confirmPass" class="col-sm-12">Confirmar Contrase&ntilde;a</label>
+                        <div class="col-sm-12 ">
+                                #springFormPasswordInput("userpwd.confirmPass" "class='form-control' placeholder='Confirmar Password'")
+                                #springShowErrors("<br />", "error")
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12 text-right  ">
+                           <a class="btn btn-success" href="profile">Cancelar</a>
+                           <input type="submit" class="btn btn-success" value="Guardar"> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

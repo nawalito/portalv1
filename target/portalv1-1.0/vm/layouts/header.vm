@@ -1,0 +1,8 @@
+<!-- css-->
+<link rel="stylesheet" href="../css/bootstrap-3.1.1/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="../css/perseomx/style.css" type="text/css">
+
+<!-- libray js-->
+<script src="../js/libs/modernizr2.8.1.min.js"></script>
+<script src="../js/libs/jquery1.11.1.min.js"></script>
+	

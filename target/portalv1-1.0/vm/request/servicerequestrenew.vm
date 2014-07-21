@@ -1,0 +1,108 @@
+<div class="row section-title">
+    <div class="col-md-4 title">&nbsp;</div>
+</div>
+#set($paises=$ListaPaises)
+#set($tsolicitudes=$ListaTiposSolicitud)
+#set($cantmsjs=$ListaCantidadMsjs)
+#set($fmensajes=$ListaFrecuenciaMsjs)
+<div class="container ">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="section-content">
+                <h2>$data.title</h2> <br/>
+                <form name="renew" method="post" action="servicerequest_renew" role="form" class="form-horizontal">
+                    #springBind("renew")
+					
+					#springFormHiddenInput("renew.folio" " ")
+					
+                    <div class="form-group">
+                        <label for="country" class="col-sm-4 control-label">Pa&iacute;s</label>
+                        <div class="col-sm-8">
+							<select id="pais" name="pais" autofocus class="form-control">
+								#foreach($pais in $paises)
+									#if($data.dataRenew.coutry_code == ${pais.code} )
+										<option value="${pais.code}" selected>${pais.pais}</option>
+									#else
+										<option value="${pais.code}">${pais.pais}</option>
+									#end
+								#end
+							</select>
+                        </div>
+                    </div>
+					
+                    <div class="form-group">
+                        <label for="typelicence" class="col-sm-4 control-label">C&oacute;digo de Area</label>
+                        <div class="col-sm-8">
+                            #springFormInput("renew.codeArea" "class='form-control' placeholder='Area'")
+                            #springShowErrors("<br />", "error")
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="typelicence" class="col-sm-4 control-label">Tel&eacute;fono</label>
+                        <div class="col-sm-8">
+                            #springFormInput("renew.phone" "class='form-control' placeholder='Tel&eacute;fono'")
+                            #springShowErrors("<br />", "error")
+                        </div>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="typelicence" class="col-sm-4 control-label">Tipo de Licencia</label>
+                        <div class="col-sm-8">
+							<select id="typeLicence" name="typeLicence" class="form-control">
+								#foreach($sol in $tsolicitudes)
+									#if($data.dataRenew.type_request_id == ${sol.id} )
+										<option value="${sol.id}" selected>${sol.title}</option>
+									#else
+										<option value="${sol.id}">${sol.title}</option>
+									#end
+								#end
+							</select>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="totalMessage" class="col-sm-4     control-label">Cantidad de Mensajes</label>
+                        <div class="col-sm-8">
+							<select id="totalMessage" name="totalMessage" class="form-control">
+								#foreach($cmsj in $cantmsjs)
+									#if($data.dataRenew.total_msj == ${cmsj.quantity} )
+										<option value="${cmsj.quantity}" selected>${cmsj.quantity}</option>
+									#else
+										<option value="${cmsj.quantity}">${cmsj.quantity}</option>
+									#end
+								#end
+							</select>
+                        </div>
+                    </div>
+					
+					
+                    <div class="form-group">
+                        <label for="frecuencynotification" class="col-sm-4     control-label">Frecuencia de Notificaci&oacute;n</label>
+                        <div class="col-sm-8">
+							<select id="frecuencyMessage" name="frecuencyMessage" class="form-control">
+								#foreach($fmsj in $fmensajes)
+									#if($data.dataRenew.frecuency_msj_id == ${fmsj.id} )
+										<option value="${fmsj.id}" selected>${fmsj.title}</option>
+									#else
+										<option value="${fmsj.id}">${fmsj.title}</option>
+									#end
+								#end
+							</select>
+                        </div>
+                    </div>
+					
+                    <div class="form-group">
+                        <label for="alias" class="col-sm-12 "></label>
+                        <div class="col-sm-12 text-right  ">
+                            <a href="panel" class="btn btn-primary">Cancelar</a>
+                            <input type="submit" class="btn btn-success" value="Aceptar">
+                        </div>
+                    </div>
+                </form>
+            </div>		
+        </div>
+    </div>
+</div>

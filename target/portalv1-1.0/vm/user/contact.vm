@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-12 col-md-5">
+            <h2>Mensaje</h2>
+            <form name="contact-message" method="POST" action="contact" role="form" class="form-horizontal">
+                #if($data)
+                    <div class="form-group ">
+                        <div class="col-sm-12 ">
+                            <div class="alert alert-danger" role="alert">$data</div>
+                        </div>
+                    </div>
+                #end
+                
+               #springBind("contact")
+                <div class="form-group ">
+                    <label for="email" class="col-sm-12">* Email</label>
+                    <div class="col-sm-12 ">
+                        #springFormInput("contact.email" "class='form-control' autofocus placeholder='Email'")
+                        #springShowErrors("<br />", "error")
+                        <!-- <input type="text" name="email" class="form-control" id="" placeholder="ejemplo: micorreo@gmail.com"> -->
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="email" class="col-sm-12">* Asunto</label>
+                    <div class="col-sm-12 ">
+                        #springFormInput("contact.subject" "class='form-control' placeholder=''")
+                        #springShowErrors("<br />", "error")
+                       <!-- <input type="text"  name="subject" class="form-control" id="" placeholder=""> -->
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <label for="email" class="col-sm-12">* Mensaje</label>
+                    <div class="col-sm-12 ">
+                        #springFormTextarea("contact.message" "class='form-control' placeholder=''")
+                        #springShowErrors("<br />", "error")
+                        <!-- <textarea name="message" class="form-control" rows="3"></textarea> -->
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-sm-12 text-right  ">
+                       <button type="submit" class="btn btn-success" > <span class="glyphicon glyphicon-comment"> </span> Enviar mensaje</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
