@@ -50,6 +50,11 @@ li {
   -moz-border-radius: 0 !important;
   border-radius: 0 !important;
 }
+label {
+display: inline-block;
+margin-bottom: 5px;
+font-weight: 300;
+}
 
 .img-circle {
   border-radius: 50% !important;
@@ -325,6 +330,10 @@ span.circle {
 }
 .section-content h2{
     margin-top: 0px;
+}
+
+.section-content label{
+    font-weight: 700;
 }
 
 /*style login*/

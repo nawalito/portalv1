@@ -113,67 +113,6 @@ public class UserController {
             
             if(actualizo.equals("1")){
                 retorno="Registro exitoso!";
-                String msj_envio="";
-                
-                //Enviar correo electronico
-                HashMap<String, String> dataSend = new HashMap<>();
-                ArrayList<LinkedHashMap<String, String>> adjuntos = new ArrayList<>();
-                ArrayList<LinkedHashMap<String, String>> destinatarios = new ArrayList<>();
-                LinkedHashMap<String, String> correo_user = new LinkedHashMap<>();
-                ArrayList<HashMap<String, String>> envio = new ArrayList<> ();
-                
-                String userIdEncode = this.getUserDao().getUserIdEncod(user.getUserName());
-                String url_activacion = "http://"+request.getServerName() +":"+ request.getLocalPort() + request.getContextPath() + request.getServletPath() +"/activate?user="+userIdEncode;
-                
-                envio = this.getGralDao().getEmailEnvio();
-                destinatarios = this.getGralDao().getEmailCopiaOculta();
-                //Agregar correo del nuevo usuario registrado
-                correo_user.put("recipient", user.getEmail());
-                correo_user.put("type", "TO");
-                destinatarios.add(correo_user);
-                
-                if(envio.size()>0){
-                    dataSend.put("hostname", envio.get(0).get("host"));
-                    dataSend.put("username", envio.get(0).get("email"));
-                    dataSend.put("password", envio.get(0).get("passwd"));
-                    dataSend.put("puerto", envio.get(0).get("port"));
-                    dataSend.put("tls", envio.get(0).get("tls"));
-                }
-                
-                dataSend.put("asunto", "Bienvenido al Portal Perseo!");
-                
-                String htmlText = "<H3>Hola! Gracias por registrarse, bienvenido "+user.getUserName()+"!</H3>";
-                htmlText += "<br/><br/>";
-                htmlText += "C&oacute;digo de activacion: ";
-                htmlText += "<b>"+code+"</b>";
-                htmlText += "<br/><br/>";
-                htmlText += "Haga clic en la siguiente url para activar su cuenta en perseo:";
-                htmlText += "<br/>";
-                htmlText += "<a href="+url_activacion+">"+url_activacion+"</a>";
-                htmlText += "<br/>";
-                htmlText += "<br/>";
-                htmlText += "<br/>";
-                htmlText += "<i>";
-                htmlText += "-----------------------";
-                htmlText += "<br/>";
-                htmlText += "www.perseo.mx";
-                htmlText += "<br/>";
-                htmlText += "www.perseosolutions.mx";
-                htmlText += "<br/>";
-                htmlText += "Tel: 0180050505";
-                htmlText += "</i>";
-                
-                //Aqui se agrega el mensaje al correo
-                dataSend.put("mensaje", htmlText);
-                
-                SendEmailHelper sender = new SendEmailHelper(dataSend, adjuntos, destinatarios);
-                
-                msj_envio = sender.Validar();
-                
-                if(msj_envio.equals("true")){
-                    msj_envio = sender.enviarEmail();
-                }
-                
                 //form success
                 x = new ModelAndView("index");
                 x = x.addObject("layout", resource.getLayout());

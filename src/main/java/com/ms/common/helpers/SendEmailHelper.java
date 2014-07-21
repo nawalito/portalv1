@@ -5,6 +5,7 @@
  */
 package com.ms.common.helpers;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -243,8 +244,8 @@ public class SendEmailHelper {
             
             
             //CONSTRUIR UN MENSAJE COMPLEJO CON ADJUNTOS
-            BodyPart messageBodyPart = new MimeBodyPart();
-
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            
             // Texto del mensaje
             //messageBodyPart.setText(this.getMensaje());
             
@@ -252,9 +253,27 @@ public class SendEmailHelper {
             
             messageBodyPart.setContent(this.getMensaje(), "text/html");
             
+            File ruta_class = new File (SendEmailHelper.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+            String parent_dir = ruta_class.getParentFile().getParentFile().getParentFile().getParentFile().getParentFile().getParentFile().getParentFile().toString();
+            
+            System.out.println("parent_dir: "+parent_dir);
+            
+            //Agregar imagen
+            MimeBodyPart imagen1 =new MimeBodyPart();
+            imagen1.attachFile(parent_dir+"/img/perseo/logo_perseo.png");
+            imagen1.setHeader("Content-ID","<logo1>");  
+            
+            MimeBodyPart imagen2 =new MimeBodyPart();
+            imagen2.attachFile(parent_dir+"/img/perseo/encryption.png");
+            imagen2.setHeader("Content-ID","<logo2>"); 
+            
+            
+            
             //JUNTAMOS AMBAS PARTES EN UNA SOLA
-            MimeMultipart multiParte = new MimeMultipart();
+            MimeMultipart multiParte = new MimeMultipart("related");
             multiParte.addBodyPart(messageBodyPart);
+            multiParte.addBodyPart(imagen1);
+            multiParte.addBodyPart(imagen2);
             
             if(this.getAdjuntos().size()>0){
                 //Adjuntar archivos

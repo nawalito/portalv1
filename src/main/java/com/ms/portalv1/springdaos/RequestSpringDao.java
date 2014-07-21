@@ -46,7 +46,8 @@ public class RequestSpringDao implements RequestInterfaceDao{
     public Map<String, Object> callStoredProcedureAdmServiceRequest(String data) {
         String element[];
         element = data.split("___");
-        
+        Map<String, Object> simpleJdbcCallResult=null;
+        try{
         SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(this.getJdbcTemplate());
         simpleJdbcCall.withProcedureName("user_request_adm_procesos");
         Map<String, Object> inParamMap = new HashMap<>();
@@ -65,7 +66,7 @@ public class RequestSpringDao implements RequestInterfaceDao{
         
         SqlParameterSource in = new MapSqlParameterSource(inParamMap);
         
-        Map<String, Object> simpleJdbcCallResult = simpleJdbcCall.execute(in);
+         simpleJdbcCallResult= simpleJdbcCall.execute(in);
         
         System.out.println("VALORES RETORNADOS POR EL PROCEDIMIENTO: ");
         System.out.println("success_: "+String.valueOf(simpleJdbcCallResult.get("success_")));
@@ -73,6 +74,11 @@ public class RequestSpringDao implements RequestInterfaceDao{
         System.out.println("noref_: "+String.valueOf(simpleJdbcCallResult.get("noref_")));
         
         return simpleJdbcCallResult;
+        
+        }catch(Exception excepcion){
+            log.log(Level.INFO, "Ejecutando query de {0}", excepcion.getMessage());
+            return simpleJdbcCallResult;
+        }
     }
     
     

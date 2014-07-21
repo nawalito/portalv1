@@ -13,6 +13,7 @@ com/ms/portalv1/springdaos/GralSpringDao$4.class
 com/ms/portalv1/controllers/ActionsServiceRequestController.class
 com/ms/common/helpers/FileHelper$3.class
 com/ms/portalv1/interfacedaos/GralInterfaceDao.class
+com/ms/portalv1/models/Contact.class
 com/ms/portalv1/validators/ServiceRequestValidator.class
 com/ms/portalv1/springdaos/RequestSpringDao$3.class
 com/ms/portalv1/models/ServiceRequestDetail.class
@@ -39,6 +40,7 @@ com/ms/portalv1/springdaos/RequestSpringDao$1.class
 com/ms/portalv1/models/UserActivate.class
 com/ms/common/helpers/StringHelper.class
 com/ms/portalv1/controllers/UserActivateController.class
+com/ms/portalv1/validators/ContactValidator.class
 com/ms/common/cofig/UserSessionData.class
 com/ms/portalv1/interfacedaos/UserInterfaceDao.class
 com/ms/portalv1/controllers/UserController.class
@@ -54,6 +56,7 @@ com/ms/portalv1/springdaos/GralSpringDao$2.class
 com/ms/portalv1/validators/UserProfilePasswdValidator.class
 com/ms/portalv1/controllers/UserEditProfileController.class
 com/ms/common/helpers/FileHelper$2.class
+com/ms/portalv1/controllers/ContactController.class
 com/ms/portalv1/springdaos/RequestSpringDao$2.class
 com/ms/common/helpers/EncodeHelper.class
 com/ms/portalv1/models/UserProfilePasswd.class

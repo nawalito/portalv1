@@ -65,6 +65,7 @@
     <bean class="com.ms.portalv1.validators.UserProfileValidator" />
     <bean class="com.ms.portalv1.validators.UserProfilePasswdValidator" />
     <bean class="com.ms.portalv1.validators.ServiceRequestValidator" />
+    <bean class="com.ms.portalv1.validators.ContactValidator" />
     
     
     

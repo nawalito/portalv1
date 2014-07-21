@@ -5,6 +5,7 @@
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/helpers/EncodeHelper.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/UserController.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/helpers/generaMD5.java
+/Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/ContactController.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/ServiceRequestRenewController.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/validators/UserProfileValidator.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/helpers/TimeHelper.java
@@ -21,6 +22,7 @@
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/models/ServiceRequestDetail.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/UserEditPasswdController.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/UserProfileController.java
+/Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/validators/ContactValidator.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/models/UserProfile.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/validators/ServiceRequestValidator.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/helpers/FileHelper.java
@@ -33,6 +35,7 @@
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/controllers/PanelController.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/cofig/ResourceProject.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/interfacedaos/UserInterfaceDao.java
+/Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/models/Contact.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/common/helpers/CalculaDigitoVerificador.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/springdaos/UserSpringDao.java
 /Users/alex/Documents/proyectos/perseo/portalv1/src/main/java/com/ms/portalv1/models/ServiceRequestRenew.java

@@ -1,13 +1,12 @@
 <div class="row section-title">
-    <div class="col-md-4 title">
-        <h2>Actualizar informaci&oacute;n</h2> 
-    </div>
+    <div class="col-md-4 title">&nbsp;</div>
 </div>
 <div class="container ">
     <div class="row">
-<hr>
+<br/>
         <div class="col-sm-5">
-            <div class="section-content1">
+            <div class="section-content">
+                <h2>Actualizar informaci&oacute;n</h2> 
                 <form name="updatep" method="post" action="edit_profile" role="form" class="form-horizontal">
                     #springBind("userp")
                     #springFormHiddenInput("userp.id" " ")

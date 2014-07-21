@@ -1,9 +1,12 @@
 <div class="row ">
     <div class="container">
         <footer> 
-            2014 Perseo&#8482;. Todos los derechos reservados &nbsp;&nbsp;<a target="_blank" href="#">Privacidad</a> &nbsp;&nbsp;<a target="_blank" href="#">T&eacute;rminos de uso</a> &nbsp;&nbsp;<a target="_blank" href="../pdf/PERSEO.pdf">Descargar Brochure</a> &nbsp;&nbsp;<a target="_blank" href="#">Contacto</a>
-            <!-- &copy; Copyright - Perseo - 
-            <a href="#"> Soporte T&eacutecnico</a> -->
+            2014 Perseo&#8482;. Todos los derechos reservados &nbsp;
+            <a target="_blank" href="#">Privacidad</a> &nbsp;
+            <a target="_blank" href="#">T&eacute;rminos de uso</a> &nbsp;
+            <a target="_blank" href="../pdf/PERSEO.pdf">Descargar Brochure</a> &nbsp;
+            <a href="#">Contacto: <span class="glyphicon glyphicon-earphone"><span>0180050505 </a>&nbsp;
+            <a target="_blank" href="contact"> <span class="glyphicon glyphicon-envelope"></span> soporte@perseo.com</a>
         </footer>
     </div>
 </div>

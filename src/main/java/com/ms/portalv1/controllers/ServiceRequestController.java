@@ -209,7 +209,9 @@ public class ServiceRequestController {
                             
                             CalculaDigitoVerificador dv = new CalculaDigitoVerificador();
                             
-                            numeroReferencia = String.valueOf(success.get("noref_")) + String.valueOf(dv.modulo10(numeroReferencia));
+                            String noRefSinDv= String.valueOf(success.get("noref_"));
+                            
+                            numeroReferencia = noRefSinDv + String.valueOf(dv.modulo10(noRefSinDv));
                             
                             data_string = "update_noref" +"___"+ serviveRequest.getIdent()+"___"+String.valueOf(success.get("folio_"))+"___"+numeroReferencia+"___"+""+"___"+""+"___"+""+"___"+"0"+"___"+"0"+"___"+"0";
                             

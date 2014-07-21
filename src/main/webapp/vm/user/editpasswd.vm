@@ -1,13 +1,12 @@
 <div class="row section-title">
-    <div class="col-md-4 title">
-        <h2>Cambiar Contrase&ntilde;a</h2> 
-    </div>
+    <div class="col-md-4 title">&nbsp;</div>
 </div>
 <div class="container ">
+<br/>
     <div class="row">
-        <hr>
         <div class="col-sm-5">
-            <div class="section-content1">
+            <div class="section-content">
+                <h2>Cambiar Contrase&ntilde;a</h2> 
                 <form name="userpwd" method="post" action="edit_passwd" role="form" class="form-horizontal">
                     #springBind("userpwd")
                     #springFormHiddenInput("userpwd.id" " ")
