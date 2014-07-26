@@ -216,7 +216,7 @@ public class ActionsServiceRequestController {
     }
     
     
-    @RequestMapping(value = "/send_request.json", method = RequestMethod.POST, produces = "application/json")
+     @RequestMapping(value = "/send_request.json", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody HashMap<String, Object> sendRequest(
             HttpSession session,HttpServletRequest request,
             @RequestParam(value = "folio", required = true) String folio,
@@ -265,38 +265,92 @@ public class ActionsServiceRequestController {
                     dataSend.put("tls", datosEnvio.get(0).get("tls"));
                 }
                 
-                String url_logo = "http://"+request.getServerName() +":"+ request.getLocalPort() + request.getContextPath() + "/img/perseo/logo_perseo.png";
                 
                 
-                String htmlText = "<H3>Folios registrados en portal Perseo:</H3>";
-                htmlText += "<table>";
-                htmlText += "<thead><tr><th>FOLIO</th><th>ESTADO</th></tr></thead>";
-                htmlText += "<tbody>";
-                for( LinkedHashMap<String,String> i : arrayData){
-                    htmlText += "<tr><td>"+i.get("folio")+"</td><td>&nbsp;&nbsp;&nbsp;"+i.get("estatus")+"</td></tr>";
-                }
-                htmlText += "</tbody>";
-                htmlText += "</table>";
+                String htmlText = ""
+                + "<html lan=\"es\">"
+                    + "<head><style>body {font-family:\"Helvetica\",\"Arial\",sans-serif; font-weight:normal; padding:0px; margin:0px; text-align:left; line-height:1.3;}.panel {background:#ECF8FF; border-color: #b9e5ff; } </style></head>"
+                + "<body style=\"background:#394149\">"
+                    + "<center>"
+                        + "<table style=\"width:700px; background-color:#ffffff;\">"
+                            + "<tr>"
+                                + "<td Style=\"border-bottom: medium solid #E8670E; border-bottom-width:medium; border-bottom-style:solid; border-bottom-color:#E8670E;\">"
+                                    + "<table style=\"width:700px;\">"
+                                        + "<tr>"
+                                            + "<td ><img src=\"cid:logo1\"></td>"
+                                        + "</tr>"
+                                    + "</table>"
+                                + "</td>"
+                            + "</tr>"
+                            + "<tr>"
+                                + "<td>"
+                                    
+                                    + "<table style=\"width:700px;\">"
+                                        + "<tr>"
+                                            + "<td><H3>Folios registrados en portal Perseo:</H3></td>"
+                                        + "</tr>"
+                                        + "<tr>"
+                                            + "<td>"
+                                                
+                                                + "<table style=\"width:700px;\" class=\"panel\">"
+                                                    + "<thead>"
+                                                        + "<tr>"
+                                                            + "<th>FOLIO</th><th>ESTADO</th>"
+                                                        + "</tr>"
+                                                    + "</thead>"
+                                                    + "<tbody>";
+                                                        
+                                                        for( LinkedHashMap<String,String> i : arrayData){
+                                                            htmlText += "<tr><td>"+i.get("folio")+"</td><td>&nbsp;&nbsp;&nbsp;"+i.get("estatus")+"</td></tr>";
+                                                        }
+                htmlText += ""
+                                                    + "<tr><td></td><td>&nbsp;<br>&nbsp;<br>&nbsp;</td></tr>"
+                                                    + "</tbody>"
+                                                + "</table>"
+                                                
+                                            + "</td>"
+                                        + "</tr>"
+                                    + "</table>"
+                                    
+                                + "<td >"
+                            + "</tr>"
+                            + "<tr>"
+                                + "<td>"
+                                    
+                                    + "<table style=\"width:700px; background-color:#ebebeb; font-style:italic; font-size:small;\">"
+                                        + "<tr>"
+                                            + "<td rowspan=\"2\" width=\"160\"><img src=\"cid:logo2\"></td>"
+                                            + "<td><p style=\"text-align:left;\"><b>Perseo Seguridad Movil</b><br>"+emailUspport+"</p></td>"
+                                        + "</tr>"
+                                    + "</table>"
+                                    
+                                + "</td>"
+                            + "</tr>";
+                htmlText += ""
+                            + "<tr>"
+                                + "<td>"
+                                    
+                                    + "<table style=\"width:700px;\">"
+                                        + "<tr>"
+                                            + "<td>"
+                                                + "<p style=\"text-align:center;\"><a href=\"#\">Terminos y Condiciones</a> | <a href=\"#\">Privacidad</a></p>"
+                                            + "<td>"
+                                        + "</tr>"
+                                    + "</table>"
+                                    
+                                + "</td>"
+                            + "</tr>"
+                        + "</table>";
+                htmlText += ""
+                    + "</center>"
+                + "</body>"
+                + "</html>";
                 
-                htmlText += "<br/>";
-                htmlText += "<br/>";
-                htmlText += "<i>";
-                htmlText += "<font color=\"#0b0b3b\">";
-                htmlText += "-------------------------------------------------------------";
-                htmlText += "</font>";
-                htmlText += "<br/>";
-                htmlText += "<table style=\"font-style:italic; font-size:small; color:#0b0b3b;\">";
-                htmlText += "<tbody>";
-                htmlText += "<tr><td rowspan='3'><img class=\"img-responsive\" src=\""+url_logo+"\" alt=\"Perseo\"></td><td>Perseo seguridad movil</td></tr>";
-                htmlText += "<tr><td>Contacto:</td></tr>";
-                htmlText += "<tr><td>"+emailUspport+"</td></tr>";
-                htmlText += "</tbody>";
-                htmlText += "</table>";
-                htmlText += "</i>";
-                
-                
+                System.out.println(htmlText);
                 
                 dataSend.put("asunto", "Solicitud de folios");
+                dataSend.put("mensaje", htmlText);
+
                 dataSend.put("mensaje", htmlText);
                 dataSend.put("codeverif", "");
                 dataSend.put("urlverif", "");

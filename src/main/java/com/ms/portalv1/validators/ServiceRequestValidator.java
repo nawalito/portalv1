@@ -19,6 +19,7 @@ import org.springframework.validation.Validator;
  * 02/julio/2014
  */
 public class ServiceRequestValidator implements Validator{
+    private static final String PATTERN_NUMERIC = "[0-9]*";
     private RequestInterfaceDao RequestDao;
 
     public RequestInterfaceDao getRequestDao() {
@@ -47,8 +48,38 @@ public class ServiceRequestValidator implements Validator{
         //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "typeLicence","required.typeLicence", "Seleccionar tipo de licencia");
         //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "totalMessage", "required.totalMessage", "Se requiere el numero de mensajes.");
         //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "frecuencyMessage", "required.frecuencyMessage", "Seleccionar frecuencia del mensaje");
-
+        
         ServiceRequest sr = (ServiceRequest) target;
+        
+        try {
+            if (!sr.getCodeArea().equals("") && !sr.getCodeArea().isEmpty()) {
+                if(!sr.getCodeArea().matches(PATTERN_NUMERIC)){
+                    errors.rejectValue("codeArea", "notnumeric.codeArea");
+                }else{
+                    if(sr.getCodeArea().length()!=2){
+                        errors.rejectValue("codeArea", "length.codeArea");
+                    }
+                }
+            }
+        } catch (Exception e) {
+            errors.rejectValue("codeArea", "required.codeArea");
+        }
+        
+        try {
+            if (!sr.getPhone().equals("") && !sr.getPhone().isEmpty()) {
+                if(!sr.getPhone().matches(PATTERN_NUMERIC)){
+                    errors.rejectValue("phone", "notnumeric.phone");
+                }else{
+                    if(sr.getPhone().length()!=8){
+                        errors.rejectValue("phone", "length.phone");
+                    }else{
+                        
+                    }
+                }
+            }
+        } catch (Exception e) {
+            errors.rejectValue("phone", "required.phone");
+        }
         
         try {
             if (sr.getPais().equals("0") || sr.getPais().equals("") || sr.getPais().isEmpty()) {
@@ -61,6 +92,13 @@ public class ServiceRequestValidator implements Validator{
         try {
             if (sr.getTypeLicence().equals("0") || sr.getTypeLicence().equals("") || sr.getTypeLicence().isEmpty()) {
                 errors.rejectValue("typeLicence", "required.typeLicence");
+            }else{
+                //Verificar si es tipo licencia FREE
+                if(this.getRequestDao().getVerifyLicenseClass(sr.getTypeLicence())>0){
+                    if(this.getRequestDao().getCountPhone(sr.getPhone(),sr.getIdent())>0){
+                        errors.rejectValue("phone", "repeated.phone");
+                    }
+                }
             }
         } catch (Exception e) {
             errors.rejectValue("typeLicence", "required.typeLicence");

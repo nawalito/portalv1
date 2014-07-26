@@ -65,9 +65,19 @@ public class ServiceRequestController {
     
     
     @RequestMapping(method = RequestMethod.GET)
-    public String initForm(HttpServletRequest request, ModelMap model){
+    public String initForm(HttpServletRequest request, @ModelAttribute("user") UserSessionData userData, ModelMap model){
         HashMap<String, Object> data = new HashMap<>();
+        LinkedHashMap<String,String>  typeLicence = new LinkedHashMap<>();
+        
         ServiceRequest sr = new ServiceRequest();
+        
+        if(this.getRequestDao().countUserRequest(userData.getUserIdCod())>0){
+            typeLicence = this.getRequestDao().getTypeLicence(false);
+        }else{
+            typeLicence = this.getRequestDao().getTypeLicence(true);
+        }
+        
+        data.put("typeLicence", typeLicence);
         
         //Mostrar aciones
         data.put("create_account", false);
@@ -121,14 +131,14 @@ public class ServiceRequestController {
     
     
     //******Retorna HashMap****************************************/
-    
+    /*
     @ModelAttribute("TypeLicence")
     public LinkedHashMap<String,String>  typeLicence() {
         LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
         lista = this.getRequestDao().getTypeLicence();
         return lista;
     }
-    
+    */
     @ModelAttribute("Countrys")
     public LinkedHashMap<String,String>  countrys() {
         LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
@@ -156,6 +166,8 @@ public class ServiceRequestController {
     
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView processSubmit(@ModelAttribute("user") UserSessionData userSessionData, @ModelAttribute("servicer") ServiceRequest serviveRequest, BindingResult result, SessionStatus status, Model model) {
+        HashMap<String, Object> data = new HashMap<>();
+        LinkedHashMap<String,String>  typeLicence = new LinkedHashMap<>();
         ModelAndView x = null;
         
         serviveRequest.setIdent(userSessionData.getUserIdCod());
@@ -167,10 +179,18 @@ public class ServiceRequestController {
         
         if (result.hasErrors()) {
             
+            if(this.getRequestDao().countUserRequest(userSessionData.getUserIdCod())>0){
+                typeLicence = this.getRequestDao().getTypeLicence(false);
+            }else{
+                typeLicence = this.getRequestDao().getTypeLicence(true);
+            }
+            
+            data.put("typeLicence", typeLicence);
+            
             x = new ModelAndView("index", "title", "Agregar solicitud - Portal Perseo");
             x = x.addObject("layout", resource.getLayout());
             x = x.addObject("view",resource.getDirViews()+"request/servicerequestcreate.vm" );
-            x = x.addObject("data","servicerequestcreate");
+            x = x.addObject("data",data);
             
             return x;
         }else{
@@ -221,137 +241,9 @@ public class ServiceRequestController {
                                 retorno="Registro de Solicitud exitoso!";
                             }
                         }
-                        
-                        
-
-                        //Enviar correo electronico
-                        HashMap<String, String> dataSend = new HashMap<>();
-                        ArrayList<LinkedHashMap<String, String>> adjuntos = new ArrayList<>();
-                        ArrayList<LinkedHashMap<String, String>> destinatarios = new ArrayList<>();
-                        ArrayList<LinkedHashMap<String, String>> destinatario_copia_oculta = new ArrayList<>();
-                        LinkedHashMap<String, String> correo_copia_oculta = new LinkedHashMap<>();
-                        ArrayList<HashMap<String, String>> datosEnvio = new ArrayList<> ();
-                        ArrayList<LinkedHashMap<String, String>> datosBanco = new ArrayList<> ();
-                        String emailVentas = "";
-                        String emailUspport="";
-
-
-                        datosEnvio = this.getGralDao().getEmailEnvio();
-                        destinatarios = this.getGralDao().getEmailUser(userSessionData.getUserName());
-                        destinatario_copia_oculta = this.getGralDao().getEmailCopiaOculta();
-                        emailVentas = this.getGralDao().getEmailSale();
-                        //Seimpre se seleccionara el id del banco 1
-                        datosBanco = this.getGralDao().getBanco("1");
-                        emailUspport = this.getGralDao().getEmailSupport();
-                        
-                        if(destinatario_copia_oculta.size()>0){
-                            //Agregar correo del destinatario para copia oculta
-                            correo_copia_oculta.put("recipient", destinatario_copia_oculta.get(0).get("recipient"));
-                            correo_copia_oculta.put("type", destinatario_copia_oculta.get(0).get("type"));
-                            destinatarios.add(correo_copia_oculta);   
-                        }
-
-                        if(datosEnvio.size()>0){
-                            dataSend.put("hostname", datosEnvio.get(0).get("host"));
-                            dataSend.put("username", datosEnvio.get(0).get("email"));
-                            dataSend.put("password", datosEnvio.get(0).get("passwd"));
-                            dataSend.put("puerto", datosEnvio.get(0).get("port"));
-                            dataSend.put("tls", datosEnvio.get(0).get("tls"));
-                        }
-                        
-                        
-                        
-                        
-                        String htmlText = "<H3>Solicitud de proteccion registrado!</H3>";
-                        htmlText += "Datos de la solicitud: ";
-                        htmlText += "<br/>";
-                        htmlText += "<b>Folio</b>: "+dataRequest.get(0).get("folio");
-                        htmlText += "<br/>";
-                        htmlText += "<b>Tipo de Licencia</b>: "+dataRequest.get(0).get("tipo_solicitud").replace("ñ", "&ntilde;");
-                        
-                        if(!dataRequest.get(0).get("clase_paquete").toUpperCase().trim().equals("FREE")){
-                            //Diferente de FREE
-                            /*
-                            htmlText += "<br/>";
-                            htmlText += "<b>Fecha</b>:  +"+dataRequest.get(0).get("fecha_solicitud");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Pais</b>:  +"+dataRequest.get(0).get("pais");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Codigo de Pais</b>: "+dataRequest.get(0).get("codigo_pais");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Codigo de area</b>: "+dataRequest.get(0).get("codigo_area");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Frecuencia de mensajes</b>: "+dataRequest.get(0).get("frecuencia_msj");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Numero de mensajes</b>: "+dataRequest.get(0).get("total_msj");
-                            */
-                            htmlText += "<br/>";
-                            htmlText += "<br/>";
-                            htmlText += "Favor de realizar deposito:";
-                            htmlText += "<br/>";
-                            htmlText += "<b>Banco</b>: "+datosBanco.get(0).get("banco");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Titular</b>: "+datosBanco.get(0).get("titular_cuenta");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Numero de cuenta</b>: "+datosBanco.get(0).get("numero_cuenta");
-                            htmlText += "<br/>";
-                            htmlText += "<b>Numero de Referencia</b>: "+numeroReferencia;
-                            htmlText += "<br/>";
-                            htmlText += "<b>Cantidad</b>:  $ "+StringHelper.AgregaComas(dataRequest.get(0).get("precio_paquete"));
-                            htmlText += "<br/>";
-                            htmlText += "<br/>";
-                            htmlText += "Una vez hecho el deposito favor de enviar la ficha escaneada a la siguiente cuenta de correo electronico para que la proteccion sea activada:";
-                            if(!emailVentas.equals("")){
-                                htmlText += "<br/>";
-                                htmlText += emailVentas;
-                            }
-                        }else{
-                            //FREE
-                            htmlText += "<br/>";
-                            htmlText += "<br/>";
-                            htmlText += "Su solicitud debe pasar a una revision y posteriormente sera activado. La activacion del periodo de prueba se le confirmara mediante correo electronico.";
-                            htmlText += "<br/>";
-                            htmlText += "<br/>";
-                            if(!emailVentas.equals("")){
-                                htmlText += "Para informacion de paquetes contacte a ";
-                                htmlText += emailVentas;
-                            }
-                        }
-
-                        htmlText += "<br/>";
-                        htmlText += "<br/>";
-                        htmlText += "<i>";
-                        htmlText += "-----------------------";
-                        htmlText += "<br/>";
-                        htmlText += "Perseo seguridad movil";
-                        htmlText += "<br/>";
-                        htmlText += "Contacto: ";
-                        htmlText += "<br/>";
-                        htmlText += emailUspport;
-                        htmlText += "<br/>";
-                        htmlText += "</i>";
-
-
-                        dataSend.put("asunto", "Registro de solicitud de proteccion");
-                        dataSend.put("mensaje", htmlText);
-                        dataSend.put("codeverif", "");
-                        dataSend.put("urlverif", "");
-                        
-                        System.out.println("INICIANDO ENVIAR CORREO");
-                        SendEmailHelper sender = new SendEmailHelper(dataSend, adjuntos, destinatarios);
-
-                        msj_envio = sender.Validar();
-
-                        if(msj_envio.equals("true")){
-                            msj_envio = sender.enviarEmail();
-                        }
-                        System.out.println("msj_envio: "+msj_envio);
-                        
                     }
                 }
                 
-                //form success
-                HashMap<String, Object> data = new HashMap<>();
                 
                 //Mostrar aciones
                 data.put("create_account", false);
@@ -369,7 +261,7 @@ public class ServiceRequestController {
                 x = new ModelAndView("index");
                 x = x.addObject("userp", data);
                 x = x.addObject("layout", resource.getLayout());
-                x = x.addObject("view",resource.getDirViews()+"user/panel.vm" );
+                x = x.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
                 x = x.addObject("data",data);
                 
                 return x;

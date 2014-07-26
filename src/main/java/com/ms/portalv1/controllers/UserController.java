@@ -7,14 +7,11 @@
 package com.ms.portalv1.controllers;
 
 import com.ms.common.cofig.ResourceProject;
-import com.ms.common.helpers.SendEmailHelper;
 import com.ms.portalv1.interfacedaos.GralInterfaceDao;
 import com.ms.portalv1.interfacedaos.UserInterfaceDao;
 import com.ms.portalv1.models.User;
 import com.ms.portalv1.validators.UserValidator;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -31,21 +31,26 @@
     <!--END Data -->
     
     <!--<security:http auto-config="true" use-expressions="true" authentication-manager-ref="authenticationManager">-->
-    <security:http auto-config="true" use-expressions="true">    
+    <security:http auto-config="true" use-expressions="true">
+        <security:access-denied-handler error-page="/control/403" />
         <security:intercept-url pattern="/redirect.jsp" access="permitAll"/>
         <security:intercept-url pattern="/control/home" access="permitAll"/>
         <security:intercept-url pattern="/control/login" access="permitAll"/>
-        <security:intercept-url pattern="/control/panel" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+        <security:intercept-url pattern="/control/activate" access="permitAll"/>
+        <security:intercept-url pattern="/control/create_account" access="permitAll"/>
+        <security:intercept-url pattern="/control/contact" access="permitAll"/>
+        <security:intercept-url pattern="/control/panel" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/services" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/servicerequest_create" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/service_detail" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/servicerequest_renew" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/edit_passwd" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/edit_profile" access="hasAnyRole('ROLE_USER')"/>
+        <security:intercept-url pattern="/control/profile" access="hasAnyRole('ROLE_USER')"/>
         
-        <!--<security:intercept-url pattern="/controllers/home/startup.ku" access="hasRole('ROLE_ADMIN')"/>-->
-        
-        <security:form-login 
-            login-page="/control/login" 
-            default-target-url="/control/panel" 
-            authentication-failure-url="/control/login"
-            always-use-default-target="true"
-        />
+        <security:form-login login-page="/control/login" default-target-url="/control/panel" authentication-failure-url="/control/error" always-use-default-target="true" />
         <security:logout invalidate-session="true" delete-cookies="JSESSIONID" logout-success-url="/control/home" logout-url="/j_spring_security_logout" />
+        
         <!--
         <security:session-management invalid-session-url="/control/home">
             <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>

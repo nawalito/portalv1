@@ -20,13 +20,16 @@ import java.util.Map;
 public interface RequestInterfaceDao {
     public Map<String, Object> callStoredProcedureAdmServiceRequest(String data);
     public Map<String, Object> callStoredProcedurActionsRequest(String command, String userid, String folio);
+    public int getVerifyLicenseClass(String id);
+    public int countUserRequest(String idCod);
+    public int getCountPhone(String phone, String id_user);
     public ArrayList<LinkedHashMap<String, String>> getPaises();
     public ArrayList<LinkedHashMap<String, String>> getTiposSolicitud(boolean incluir_prueba);
     public ArrayList<LinkedHashMap<String, String>> getFrecuenciaMsjs();
     public ArrayList<LinkedHashMap<String, String>> getCantidadMsjs();
     
     public LinkedHashMap<String, String> getCountrys();
-    public LinkedHashMap<String, String> getTypeLicence();
+    public LinkedHashMap<String, String> getTypeLicence(boolean incluir_prueba);
     public LinkedHashMap<String, String> getFrecuencyNotification();
     public LinkedHashMap<String, String> getTotalMessage();
     

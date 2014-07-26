@@ -60,4 +60,15 @@
         <welcome-file>redirect.jsp</welcome-file>
     </welcome-file-list>
     
+    
+    <error-page>
+        <error-code>404</error-code>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/AppExceptionHandler</location>
+    </error-page>
+    
 </web-app>

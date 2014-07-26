@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -106,6 +106,42 @@ public class RequestSpringDao implements RequestInterfaceDao{
     }
     
     
+    //Obtener clase de la licencia
+    @Override
+    public int getVerifyLicenseClass(String id){
+        int valor_retorno=0;
+        String sql = "select count(usr_type_request.id) as count from usr_type_request where usr_type_request.id="+id+" and lower(class)='free';";
+        System.out.println("getVerifyLicenseClass: "+sql);
+        try{
+            Map<String, Object> count = this.getJdbcTemplate().queryForMap(sql);
+            valor_retorno = Integer.valueOf(count.get("count").toString());
+        }catch(NumberFormatException | DataAccessException ex){
+            valor_retorno=0;
+        }
+        return valor_retorno;
+    }
+    
+    
+    @Override
+    public int countUserRequest(String idCod) {
+        return this.getJdbcTemplate().queryForInt("select count(usr_request.id) from sys_usr join usr_request on usr_request.sys_usr_id=sys_usr.id where sys_usr.encod='" + idCod + "';");
+    }
+    
+    
+    @Override
+    public int getCountPhone(String phone, String id_user_code) {
+        int valor_retorno=0;
+        String sql = "select count(usr_request.id) as count from usr_request join sys_usr on sys_usr.id=usr_request.sys_usr_id where sys_usr.encod!='"+id_user_code+"' and usr_request.phone="+phone+"";
+        System.out.println("getCountPhone: "+sql);
+        try{
+            Map<String, Object> count = this.getJdbcTemplate().queryForMap(sql);
+            valor_retorno = Integer.valueOf(count.get("count").toString());
+        }catch(NumberFormatException | DataAccessException ex){
+            valor_retorno=0;
+        }
+        return valor_retorno;
+    }
+    
     
     @Override
     public ArrayList<LinkedHashMap<String, String>> getPaises() {
@@ -130,14 +166,13 @@ public class RequestSpringDao implements RequestInterfaceDao{
     
     @Override
     public ArrayList<LinkedHashMap<String, String>> getTiposSolicitud(boolean incluir_prueba) {
-        
         String sql_to_query = "";
+        
         if(incluir_prueba){
             sql_to_query = "select id, title from usr_type_request where enabled=true;";
         }else{
             sql_to_query = "select id, title from usr_type_request where enabled=true and lower(class)<>'free';";
         }
-        
         
         log.log(Level.INFO, "Ejecutando query de {0}", sql_to_query);
         ArrayList<LinkedHashMap<String, String>> hm = (ArrayList<LinkedHashMap<String, String>>) this.getJdbcTemplate().query(
@@ -234,9 +269,15 @@ public class RequestSpringDao implements RequestInterfaceDao{
     
     //Obtiene lista de Tipos de Licencia y los agrega en un HashMap
     @Override
-    public LinkedHashMap<String, String> getTypeLicence() {
-        String retorno = "";
-        String sql_to_query = "select id, title from usr_type_request where enabled=true;";
+    public LinkedHashMap<String, String> getTypeLicence(boolean incluir_prueba) {
+        String sql_to_query = "";
+        
+        if(incluir_prueba){
+            sql_to_query = "select id, title from usr_type_request where enabled=true;";
+        }else{
+            sql_to_query = "select id, title from usr_type_request where enabled=true and lower(class)<>'free';";
+        }
+        
         
         log.log(Level.INFO, "Ejecutando query de {0}", sql_to_query);
         ArrayList<LinkedHashMap<String, String>> arrayhm = (ArrayList<LinkedHashMap<String, String>>) this.getJdbcTemplate().query(

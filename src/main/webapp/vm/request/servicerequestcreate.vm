@@ -5,6 +5,10 @@
 #set($tsolicitudes=$ListaTiposSolicitud)
 #set($cantmsjs=$ListaCantidadMsjs)
 #set($fmensajes=$ListaFrecuenciaMsjs)
+
+#set($TLicence=$data.typeLicence)
+
+
 <div class="container ">
     <div class="row">
         <div class="col-sm-7">
@@ -41,7 +45,7 @@
                     <div class="form-group">
                         <label for="typelicence" class="col-sm-4 control-label">Tipo de Licencia</label>
                         <div class="col-sm-8">
-                            #springFormSingleSelect("servicer.typeLicence" $TypeLicence "class='form-control'")
+                            #springFormSingleSelect("servicer.typeLicence" $TLicence "class='form-control'")
                             #springShowErrors("<br />", "error")
                         </div>
                     </div>

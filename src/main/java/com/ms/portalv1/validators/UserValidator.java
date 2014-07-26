@@ -80,6 +80,12 @@ public class UserValidator implements Validator{
             }
         }
         
+        if(!usr.getNoRef().isEmpty() && !usr.getNoRef().trim().equals("")){
+            if(usr.getNoRef().length()!=5){
+                errors.rejectValue("noRef", "length.noRef");
+            }
+        }
+        
 //        if(!usr.getNoRef().isEmpty() && !usr.getNoRef().trim().equals("")){
 //            if(!usr.getNoRef().matches(PATTERN_NUMERIC)){
 //                errors.rejectValue("noRef", "notvalid.noRef");
