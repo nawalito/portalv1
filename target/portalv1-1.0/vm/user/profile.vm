@@ -1,12 +1,13 @@
 <div class="row section-title">
-    <div class="col-md-4 title">&nbsp;</div>
+    <div class="col-sm-12">
+        <h1>Perfil<h1>
+    </div>
 </div>
 <div class="container ">
 <br/>
     <div class="row">
         <div class="col-sm-5">
             <div class="section-content">
-                <h2>Perfil</h2> 
                 <hr/>
                 <form class="form-horizontal " role="form">#springBind("userp")
                    

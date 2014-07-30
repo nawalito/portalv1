@@ -107,4 +107,11 @@ public class ServiceRequestDetailController {
         //return form view
         return "index";
     }
+@RequestMapping(method = RequestMethod.GET)
+
+    public String redirectSearch(HttpServletRequest request, ModelMap model, @ModelAttribute("user") UserSessionData userData){
+        
+         return "redirect:panel";
+    }
 }
+

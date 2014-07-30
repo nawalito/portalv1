@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lan="es">
     <head>
-        <title>perseo</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perseo - Seguridad Movil</title>
         <meta charset="UTF-8">
-        <meta name="description" content="Portal Perseo"/>
-        <meta name="author" content="gpmarsan@gmail.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="Perseo - Seguridad Movil">
+        <link rel="shortcut icon" href="../img/perseo/favicon2-01.png">
 	
         <!-- css-->
         <link rel="stylesheet" href="../css/bootstrap-3.1.1/bootstrap.min.css" type="text/css">
@@ -39,10 +39,12 @@
                             </a>
                         </div>
                         <ul class="nav navbar-nav navbar-right">
-                        <li> <a target="_blank" class="btn" href="create_account">Registrarse</a></li>
+                        <li><a target="_blank" class="btn" href="../pdf/PERSEO.pdf">Brochure</a></li></li>
+                        <li> <a  class="btn" href="docs">Documentaci&oacute;n</a></li>
+                        <li> <a  class="btn" href="ayuda">Ayuda y soporte</a></li>
                         <li>
                             <form class="navbar-form navbar-right" action="POST" role="search" onSubmit="return false;">
-                                <a target="_blank" class="btn btn-success" href="login">Iniciar Sesi&oacute;n</a>
+                                <a class="btn btn-success" href="login">Ingresar</a>
                             </form>
                         </li>
                     </ul>
@@ -51,13 +53,7 @@
             </nav>
         </header>
         <!-- content -->
-        <div class="row container-body">
-            <div class="container">
-                <div class="row ">
-                    #parse("${view}")
-                </div>
-            </div>
-        </div>
+            #parse("${view}")
         #include('./vm/layouts/footer.vm')
     </body>
 </html>

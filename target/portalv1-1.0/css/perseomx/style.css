@@ -10,24 +10,18 @@
 html { 
     /*font-weight: 300;*/
     height: 100%;
-    background-color: #F4F4F4;
+    /*background-color: #F4F4F4;*/
 }
 body {
-  min-height: 100%; 
-  color: #fff;
-  /*color: #ED6301;*/
-  font-family: 'Source Sans Pro', sans-serif;
-  /*font-family: "Open Sans", sans-serif;*/
+  font: 12px/1.8 Arial, sans-serif;
+  color: #555;
+  background: #000;
+  height: 100%; 
+  
   padding: 0px !important;
   margin: 0px !important;
-  background: rgba(0, 0, 0, 0.82);
-  /*background-color: white;*/
-  background-image: url("../../img/perseo/prueba.jpg") ;
-  background-repeat:no-repeat;
-  background-position:bottom; 
-  /*background-color: #F3F3F1;*/
-  font-size: 13px;
-  /*direction: ltr;*/
+  
+
 }
 
 /* Reset round corners */
@@ -81,6 +75,13 @@ h6 {
 h1 {
   font-size: 33px;
 }
+h1.tm-title{
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0 0 10px 0;
+}
 
 h2 {
     color: #ED6301;
@@ -91,7 +92,11 @@ h2 {
 h3 {
   font-size: 23px;
 }
-
+h3.tm-title{
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    color: #E8670E;
+}
 h4 {
   font-size: 17px;
 }
@@ -135,12 +140,13 @@ h6.block {
     min-height: 61px;
     margin-bottom: 0px;
 }
+
 .navbar-default{
     background-color: #fff;
     border-color: none;
-    border-top: 3px solid #1B1B1B;
-    border-bottom: 2px solid #ED6301;
-    margin-bottom: 1em;
+    border-top: 3px solid #000;
+    border-bottom: 2px solid #000;
+    /*margin-bottom: 1em;*/
 }
 
 .navbar-brand {
@@ -151,20 +157,54 @@ h6.block {
    float: left;
 }
 
-
 .container-body{
-    min-height: 70%;
+    background-repeat:no-repeat;
+    background-position:center; 
+    background-color: #fff;
+    min-height: 80%;
     height: auto !important;
 }
+.section-title{
+    padding: 0px 45px;
+    background: #394149;
+}
+.section-title h1{
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    padding:  0 0 0 0;
+    font-size: 20px;
+
+}
+.container-body-home{
+    padding-top:  10%;
+    background-image: url("../../img/perseo/slider5.jpg") ;
+    background-repeat:no-repeat;
+    background-position:center; 
+    background-color: #fff;
+    min-height: 84%;
+    height: auto !important;
+}
+
 .container-home{
     padding-top: 10%;
 }
 
+.banner-title{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color:#171717;   
+}
 
+.lbl-section{
+    font-weight: 300;
+    font-size:16px; 
+}
 /*style inputs form*/
-span.error{
+.error{
     color: #a94442;
 }
+
 /* Form inputs */
 .form-control {
     font-size: 14px;
@@ -208,23 +248,52 @@ span.error{
 .thumbnail{
     color:white;
     /* background-color: #3D464B; */
-    background: none repeat scroll 0% 0% #3B434A;
-    border: 1px solid #323A40;
+    background: none repeat scroll 0% 0% #394049;
+    border: 0px solid #323A40;
     opacity: 0.9;
-    border-radius: 5px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 0px;
+    /*box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25) inset;*/
+    padding: 0;
+}
+.thumbnail p.title{
+    margin: 0;
+    font-size: 14px;
+    background-color: #171A1D;
+    padding: 5px;
+    border: 0;
+    
+}
+
+.thumbnail .subtitle{
+    padding: 5px;
+    font-size: 35px;
+    margin: -1px;
 }
 .thumbnail .caption{
-    color:white;
-    font-family: "DroidSans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font: 12px/1.8 Arial,sans-serif;
+    color:#555;
+    font-weight: 600;
+    /*font-family: "DroidSans","Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-size: 0.95em;
     line-height: 130%;
     letter-spacing: 1px;
+    background: white;
+    padding: 0px;
+    padding-bottom: 10px;
 }
+.thumbnail .caption ul{
+    margin-bottom: 20px;
+}
+.thumbnail .caption li{
+    padding: 8px;
+    border-bottom: 1px solid #F2F2F2;
+}
+
 .thumbnail h1{
     font-size: 38px;
     margin-top: -25px;
 }
+
 span.circle {
   border-radius: 0.8em;
   -moz-border-radius: 0.8em;
@@ -276,8 +345,8 @@ span.circle {
 }
 .btn-success{
     font-weight: 300;
-    background-color: #008D71;
-    border-color: #008D71;
+    background-color: #394049;
+    border-color: #394049;
 }
 /*.btn-default{
     font-weight: 300;
@@ -313,10 +382,13 @@ span.circle {
 }
 
 .section-content{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: normal;
     padding: 25px 25px 25px 25px;
     color:#333333;
-/*    background-color: white;
-    border: 1px solid #ddd;*/
+/*    background-color: white;*/
+    border: 1px solid #ddd;
     
     /* background-color: #3D464B; */
     background: none repeat scroll 0% 0% #fff;
@@ -325,6 +397,7 @@ span.circle {
     border-radius: 0px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.80) inset;*/
 }
+
 .section-content .form-group:last-child{
     margin-bottom: 0px;
 }
@@ -337,6 +410,9 @@ span.circle {
 }
 
 /*style login*/
+.row-line-content{
+ border-left:  1px solid #ddd;   
+}
 .login {
     color: #333;
     /*color:white;*/
@@ -348,8 +424,8 @@ span.circle {
     padding-top: 20px;
     padding-bottom: 15px;
     border: 1px solid #ddd;
-    font-family: "DroidSans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 0.95em;
+    /*font-family: "DroidSans","Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size: 14px;
     line-height: 130%;
     letter-spacing: 1px;
     
@@ -358,6 +434,9 @@ span.circle {
     opacity: 0.9;
     border-radius: 5px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25) inset;*/
+}
+.login label{
+    font-weight:600;
 }
 .login .form-title {
     font-weight: 300;
@@ -395,7 +474,7 @@ span.circle {
 .green.btn {
     font-weight: 300;
     color: white;
-    background-color: #008D71;
+    background-color: #394049;
     border-color: "";
 }
 
@@ -409,12 +488,15 @@ span.circle {
 .modal{
     color:#333;
 }
+.footer{
+  
+}
 /*style footer*/
 footer{
-    /*border-top: 1px solid #ddd;*/
-    color:#ED6301;
+    font-weight: normal;
+    color:#fff;
     clear: both;
-    padding: 2.5em 0;
+    padding: 2em 0;
     text-align: center;
 }
 

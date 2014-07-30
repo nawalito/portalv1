@@ -140,10 +140,11 @@ public class UserActivateController {
         
         //Mostrar aciones
         data.put("create_account", false);
-        data.put("login", true);
+        data.put("login", false);
         data.put("panel", false);
         data.put("profile", false);
         data.put("logout", false);
+        data.put("activate",true);
         
         //Command object
         model.addAttribute("activate", usa);

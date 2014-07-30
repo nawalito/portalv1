@@ -1,7 +1,15 @@
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Mensaje<h1>
+    </div>
+</div>
 <div class="container">
     <div class="row ">
-        <div class="col-sm-12 col-md-5">
-            <h2>Mensaje</h2>
+        <br/><br/>
+        <div class="col-sm-12 col-md-5 col-md-offset-1">
+            <h2>Deja tus dudas o aclaraciones</h2>
+        </div>
+        <div class="col-sm-12 col-md-5 row-line-content">
             <form name="contact-message" method="POST" action="contact" role="form" class="form-horizontal">
                 #if($data)
                     <div class="form-group ">

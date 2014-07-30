@@ -1,5 +1,7 @@
 <div class="row section-title">
-    <div class="col-md-4 title">&nbsp;</div>
+    <div class="col-sm-12">
+        <h1>formulario de Solicitud<h1>
+    </div>
 </div>
 #set($paises=$ListaPaises)
 #set($tsolicitudes=$ListaTiposSolicitud)
@@ -10,15 +12,19 @@
 
 
 <div class="container ">
+    
     <div class="row">
-        <div class="col-sm-7">
+        <br/>
+         <div class="col-sm-5 col-md-offset-1 ">
+            <p class="lbl-section">Es necesario llenar el formulario de solicitud, los campos con * son  requeridos</p>
+        </div>
+        <div class="col-sm-4 col-md-offset-1">
             <div class="section-content">
-                <h2>Solicitud de servicio</h2> <br/>
                 <form name="servicerequest" method="post" action="servicerequest_create" role="form" class="form-horizontal">
                     #springBind("servicer")
 					
                     <div class="form-group">
-                        <label for="country" class="col-sm-4 control-label">Pa&iacute;s</label>
+                        <label for="country" class="col-sm-4 control-label">* Pa&iacute;s</label>
                         <div class="col-sm-8">
                             #springFormSingleSelect("servicer.pais" $Countrys "class='form-control' autofocus")
                             #springShowErrors("<br />", "error")
@@ -26,24 +32,24 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="typelicence" class="col-sm-4 control-label">C&oacute;digo de Area</label>
+                        <label for="typelicence" class="col-sm-4 control-label">* C&oacute;digo de Area</label>
                         <div class="col-sm-8">
-                            #springFormInput("servicer.codeArea" "class='form-control' placeholder='Area'")
+                            #springFormInput("servicer.codeArea" "class='form-control' placeholder=''")
                             #springShowErrors("<br />", "error")
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="typelicence" class="col-sm-4 control-label">Tel&eacute;fono</label>
+                        <label for="typelicence" class="col-sm-4 control-label">* Tel&eacute;fono</label>
                         <div class="col-sm-8">
-                            #springFormInput("servicer.phone" "class='form-control' placeholder='Tel&eacute;fono'")
+                            #springFormInput("servicer.phone" "class='form-control' placeholder=''")
                             #springShowErrors("<br />", "error")
                         </div>
                     </div>
 
                     
                     <div class="form-group">
-                        <label for="typelicence" class="col-sm-4 control-label">Tipo de Licencia</label>
+                        <label for="typelicence" class="col-sm-4 control-label">* Tipo de Licencia</label>
                         <div class="col-sm-8">
                             #springFormSingleSelect("servicer.typeLicence" $TLicence "class='form-control'")
                             #springShowErrors("<br />", "error")
@@ -52,7 +58,7 @@
 
 
                     <div class="form-group">
-                        <label for="totalMessage" class="col-sm-4     control-label">Cantidad de Mensajes</label>
+                        <label for="totalMessage" class="col-sm-4     control-label">* Cantidad de Mensajes</label>
                         <div class="col-sm-8">
                             #springFormSingleSelect("servicer.totalMessage" $TotalMessage "class='form-control'")
                             #springShowErrors("<br />", "error")
@@ -60,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="frecuencynotification" class="col-sm-4     control-label">Frecuencia de Notificaci&oacute;n</label>
+                        <label for="frecuencynotification" class="col-sm-4     control-label">* Frecuencia de Notificaci&oacute;n</label>
                         <div class="col-sm-8">
                             #springFormSingleSelect("servicer.frecuencyMessage" $FrecuencyNotification "class='form-control'")
                             #springShowErrors("<br />", "error")
@@ -71,11 +77,12 @@
                         <label for="alias" class="col-sm-12 "></label>
                         <div class="col-sm-12 text-right  ">
                             <a href="panel" class="btn btn-primary">Cancelar</a>
-                            <input type="submit" class="btn btn-success" value="Aceptar">
+                            <input type="submit" class="btn btn-success" value="Enviar solicitud">
                         </div>
                     </div>
                 </form>
             </div>		
         </div>
+        
     </div>
 </div>

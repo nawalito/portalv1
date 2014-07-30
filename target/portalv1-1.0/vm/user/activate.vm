@@ -1,23 +1,35 @@
-<div class="row ">
-    <h2>Activar Cuenta</h2>
-    <hr>
-    <form name="activate" method="post" action="activate" role="form" class="form-horizontal" >
-        #springBind("activate")
-        #springFormHiddenInput("activate.user" " ")
-        <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">C&oacute;digo de Confirmaci&oacute;n</label>
-            <div class="col-sm-3 ">
-                #springFormInput("activate.code" "class='form-control' autofocus placeholder='Ingresa el c&oacute;digo de activacion'")
-                #springShowErrors("<br />", "error")
-              
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Activar cuenta<h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row ">
+        <br/>
+        <div class="col-sm-12 col-md-8 col-md-offset-2">
+            <div class="section-content">
+                <p class="lbl-section">*Ingresa el c&oacute;digo que se te ha enviado a tu correo electr&oacute;nico para  activar tu cuenta<br/> &nbsp;</p>
+                <form name="activate" method="post" action="activate" role="form" class="form-horizontal" >
+                    #springBind("activate")
+                    #springFormHiddenInput("activate.user" " ")
+                    <div class="form-group">
+                        <label for="email" class="col-sm-4 control-label">C&oacute;digo de Confirmaci&oacute;n</label>
+                        <div class="col-sm-6 ">
+                            #springFormInput("activate.code" "class='form-control' autofocus placeholder='Ingresa el c&oacute;digo de activacion'")
+                            #springShowErrors("<br />", "error")
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <label for="alias" class="col-sm-4 control-label"> <a href="home">Cancelar</a></label>
+                    <div class="col-sm-6 text-right  "> 
+                        <input type="submit" class="btn btn-success" value="Activar cuenta">
+                    </div>
+                </div>
+                </form>
+                <br/>
+                
             </div>
         </div>
-        <div class="form-group">
-        <label for="alias" class="col-sm-3 control-label"> <a href="home">Cancelar</a></label>
-        <div class="col-sm-3 text-right  ">
-           <input type="submit" class="btn btn-success" value="Activar cuenta">
-        </div>
     </div>
-    </form>
-    <small>*Ingresa el c&oacute;digo que se te ah enviado a tu correo electr&oacute;nico para poder activar tu cuenta</small>
 </div>

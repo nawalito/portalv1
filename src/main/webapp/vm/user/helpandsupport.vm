@@ -1,0 +1,50 @@
+<div class="row container-body">
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Ayuda y Soporte<h1>
+    </div>
+</div>
+<div class="col-sm-12">
+    <br>
+        <div class="row">
+            <div class="col-sm-8">
+               <h4> <strong> Soluciones m&aacutes frecuentes<strong> </h4>
+                
+                <ul class="nav" id="accordion">
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">&#191;Qu&eacute; es Perseo Security&#63;</a>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            Respuesta
+                        </div>
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">&#191;C&oacute;mo comienzo a usar Perseo Security &#63;</a>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            Respuesta
+                        </div>
+
+                    </li>
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">&#191;En d&oacute;nde es posible realizar el pago de una licencia&#63;</a>
+                        <div id="collapseOne" class="panel-collapse collapse">
+                            Respuesta
+                        </div>
+                    
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><strong> Contactanos a</strong></div>
+                    <div class="panel-body text-center">
+                        <p><span class="glyphicon glyphicon-earphone"></span> 01 800 50505<p>
+                        <p><span class="glyphicon glyphicon-envelope"></span> soporte@perseo.com<p>
+                        <hr/>
+                        <span class="glyphicon glyphicon-comment"><a href="contact"> Dejanos tus dudas o comentarios</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>

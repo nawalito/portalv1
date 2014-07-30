@@ -1,15 +1,17 @@
 <div class="row section-title">
-    <div class="col-md-4 title">&nbsp;</div>
+    <div class="col-sm-12">
+        <h1>Renovar<h1>
+    </div>
 </div>
 #set($paises=$ListaPaises)
 #set($tsolicitudes=$ListaTiposSolicitud)
 #set($cantmsjs=$ListaCantidadMsjs)
 #set($fmensajes=$ListaFrecuenciaMsjs)
 <div class="container ">
-    <div class="row">
+    <div class="row"><br/>
         <div class="col-sm-7">
             <div class="section-content">
-                <h2>$data.title</h2> <br/>
+                <!-- <h2>$data.title</h2> <br/> -->
                 <form name="renew" method="post" action="servicerequest_renew" role="form" class="form-horizontal">
                     #springBind("renew")
 					
@@ -103,6 +105,9 @@
                     </div>
                 </form>
             </div>		
+        </div>
+        <div class="col-sm-5 ">
+            <p class="lbl-section"></p>
         </div>
     </div>
 </div>

@@ -1,10 +1,15 @@
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Registro<h1>
+    </div>
+</div>
 <div class="container">
     <div class="row ">
-        <div class="col-sm-12  col-md-8">
-            <h2>Es Tiempo de Recobrar la Confianza</h2>
-            <p>Habla de lo que quieras donde quieras, con privacidad a trav&eacute;s de tu aparato m&oacute;vil.</p>
+        <div class="col-sm-12  col-md-5 col-md-offset-1">
+            <br/>
+            <p class="lbl-section">Para solicitar el servicio de protecci&oacute;n de voz y datos debe de llenar el fomulario para la creaci&oacute;n de su cuenta</p>
         </div>
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-12 col-md-4 ">
             <div class="section-content">
             <form name="register" method="post" action="create_account" role="form" class="form-horizontal">
                     #springBind("user")
@@ -66,5 +71,6 @@
                  </form>
             </div>
         </div>
+        
     </div>
 </div>

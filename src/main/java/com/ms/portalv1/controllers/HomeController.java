@@ -41,4 +41,26 @@ public class HomeController {
         
         return x;
     }
+    
+    @RequestMapping(value="/ayuda", method=RequestMethod.GET)
+    public ModelAndView helpandsupport(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        resource.setLayout(resource.getDirLayout() +"home.vm");
+        
+        ModelAndView modelViewhelpAndSupport = new ModelAndView("index");
+        modelViewhelpAndSupport.addObject("layout", resource.getLayout());
+        modelViewhelpAndSupport.addObject("view",resource.getDirViews()+"user/helpandsupport.vm" );
+        
+        return modelViewhelpAndSupport;
+    }
+    
+    @RequestMapping(value="/docs", method=RequestMethod.GET)
+    public ModelAndView docs(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        resource.setLayout(resource.getDirLayout() +"home.vm");
+        
+        ModelAndView modelViewDocs = new ModelAndView("index");
+        modelViewDocs.addObject("layout", resource.getLayout());
+        modelViewDocs.addObject("view",resource.getDirViews()+"user/docs.vm" );
+        
+        return modelViewDocs;
+    }
 }

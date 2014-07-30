@@ -80,7 +80,7 @@ public class PanelController {
             System.out.println("ROLE_ADMIN");
         }else{
             if(request.isUserInRole("ROLE_USER")){
-                
+                System.out.println("ee"+this.getUserDao().countUserRequest(userdata.getUserIdCod()));
                 if(this.getUserDao().countUserRequest(userdata.getUserIdCod())>0){
                     view=resource.getDirViews()+"request/searchrequest.vm";
                 }
@@ -119,4 +119,4 @@ public class PanelController {
         
         return x;
     }
-}
+ }

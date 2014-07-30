@@ -1,10 +1,16 @@
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Solicitudes<h1>
+    </div>
+</div>
 <div class="container ">
     <div class="row">
         <div class="col-sm-12">
             <div class="section-content">
+                
                 <div class="row">
-                    <div class="col-sm-7"><h2>Solicitud de servicio</h2></div>
-                    <div class="col-sm-5 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
+                    <div class="col-sm-8"> - Para consultar o realizar una operacion sobre una solicitud existente es necesario buscarlo  con el n&uacute;mero de folio - </div>
+                    <div class="col-sm-4 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
                 </div>
                 
                 <div class="row">
@@ -13,7 +19,7 @@
                             <div class="form-group">
                                 <label for="folio" class="col-sm-1 control-label">Folio</label>
                                 <div class="col-sm-4">
-                                    <input type="text" class="form-control" id="folio" name="folio" autofocus placeholder="Folio">
+                                    <input type="text" class="form-control" id="folio" name="folio" autofocus placeholder="ingresa un folio">
                                 </div>
                                 <div class="col-sm-3">
                                     <a data-toggle="modal"  data-target="#verifyUser" href="#service_detail" class="btn btn-info">Buscar</a>

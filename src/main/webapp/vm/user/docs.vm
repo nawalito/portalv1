@@ -1,0 +1,25 @@
+<div class="row container-body">
+    <div class="row section-title">
+        <div class="col-sm-12">
+            <h1>Documentaci&oacute;n<h1>
+        </div>
+    </div>
+    <div class="col-sm-12">
+            <br/>
+            <div class="row">
+                <div class="col-sm-8">
+                     Secci&oacuten en Construcci&oacute;n
+                </div>
+                <div class="col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><strong> Contactanos a</strong></div>
+                        <div class="panel-body text-center">
+                            <p><span class="glyphicon glyphicon-earphone"></span> 01 800 50505<p>
+                            <p><span class="glyphicon glyphicon-envelope"></span> soporte@perseo.com<p>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</div>

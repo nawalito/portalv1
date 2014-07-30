@@ -1,54 +1,56 @@
-<div class="col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10 text-center ">
-    
-    <div class="row ">
-        <h2>Comunicaci&oacuten segura atrav&eacute;s de tu dispositivo celular</h2>
-<p>Perseo&#8482; introduce su sistema &uacute;nico de blindaje para comunicaci&oacute;n, para uso en todo tipo de celulares </p>
-<br /><br /><br />
-        <div class="col-sm-4 col-md-4 ">
-            <div class="thumbnail ">
-                <h1><span class="circle bg-success"><span class="glyphicon glyphicon glyphicon-phone"></span></span></h1>
-                <div class="caption">
-                    <h4>PERSEO FREE</h4>
-                    <strong><h2>GRATIS</h2></strong>
-                    <p>*Licencia de Prueba</p>
-                    <p>*Gratis durante 15 dias</p>
-                    <p>*Periodo de Gracia para Contratar: 2 D&iacute;as</p>
-                    <p>&nbsp;</p>
-                    <p class="text-center"><a href="login" class="btn btn-success" role="button">Solicitar</a></p>
+<div class="row container-body-home">
+    <div class="col-sm-offset-0 col-sm-12 col-lg-offset-1 col-lg-10 text-center ">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 ">
+                <div class="thumbnail ">
+                    <p class="title">PERSEO FREE</p>
+                    <p class="subtitle">Gratis</p>
+                    <div class="caption">
+                        <br/>
+                        <ul class="nav">
+                            <li>Licencia de Prueba</li>
+                            <li>Gratis durante 15 d&iacute;as</li>
+                            <li>Licencia: Prueba Gratis</li>
+                            <li>Periodo de Gracia para Contratar: 2 D&iacute;as</li>
+                        </ul>
+                        <p class="text-center"><a href="login" class="btn btn-success" role="button">Comprar</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4 col-md-4 ">
-            <div class="thumbnail">
-                <h1><span class="circle bg-success"><span class="glyphicon glyphicon-phone"></span></span></h1>
-                <div class="caption">
-                    <h4>PERSEO SILVER</h4>
-                    <strong><h2>$ 32,512.00</h2></strong>
-                    <p>*Licencia de 12 Meses</p>
-                    <p>*Periodo de Licenciamiento: 365 D&iacute;as</p>
-                    <p>*Licenciamiento: Cobertura de 1 A&ntilde;o</p>
-                    <p>*Per&iacute;odo de Gracia para Renovar : 30 D&iacute;as</p>
+            <div class="col-sm-4 col-md-4 ">
+                <div class="thumbnail">
+                    <p class="title">PERSEO SILVER</p>
+                    <p class="subtitle">$ 32,512.00</p>
+                    <div class="caption">
+                        <br/>
+                        <ul class="nav">
+                            <li>Licencia de 12 Meses</li>
+                            <li>Periodo de Licenciamiento: 365 D&iacute;as</li>
+                            <li>Licencia: Cobertura de 1 A&ntilde;o</li>
+                            <li>Per&iacute;odo de Gracia para Renovar : 30 D&iacute;as</li>
+                        </ul>
+                        <p class="text-center"><a href="login" class="btn btn-success" role="button">Comprar</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4 ">
+                <div class="thumbnail">
+                    <p class="title">PERSEO GOLD</p>
+                    <p class="subtitle">$ 39,912.00</p>
 
-                    <p class="text-center"><a href="login" class="btn btn-success" role="button">Solicitar</a></p>
+                    <div class="caption">
+                        <br/>
+                        <ul class="nav">
+                            <li>Licencia de 24 Meses</li>
+                            <li>Periodo de Licenciamiento: 730 D&iacute;as </li>
+                            <li>Licencia: Cobertura de 2 A&ntilde;os </li>
+                            <li>Per&iacute;odo de Gracia para Renovar : 30 D&iacute;as </li>
+                        </ul>
+                        <p class="text-center"><a href="login" class="btn btn-success" role="button">Comprar</a></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm-4 col-md-4 ">
-            <div class="thumbnail">
-                <h1><span class="circle bg-success"><span class="glyphicon glyphicon-phone"></span></span></h1>
-                <div class="caption">
-                    <h4>PERSEO GOLD</h4>
-                    <strong><h2>$ 39,912.00</h2></strong>
-                    <p>*Licencia de 12 Meses</p>
-                    <p>*Periodo de Licenciamiento: 730 D&iacute;as</p>
-                    <p>*Licenciamiento: Cobertura de 2 A&ntilde;o</p>
-                    <p>*Per&iacute;odo de Gracia para Renovar : 30 D&iacute;as</p>
 
-                    <p class="text-center"><a href="login" class="btn btn-success" role="button">Solicitar</a></p>
-                </div>
-            </div>
         </div>
-        
     </div>
-    
 </div>

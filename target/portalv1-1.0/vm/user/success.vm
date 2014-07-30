@@ -1,12 +1,14 @@
+<div class="row section-title">
+    <div class="col-sm-12">
+        <h1>Registro<h1>
+    </div>
+</div>
 <div class="container">
     <div class="row ">
-        <div class="col-sm-12  col-md-8">
-            <h2>Crea una cuenta en perseo</h2>
-            <p>Protege tus n&uacute;meros tel&eacute;fonicos con nuestro sistema de seguridad, &iexcl;Evita que tus llamadas sean intervenidas&#33;</p>
-        </div>
+        <div class="col-sm-12  col-md-8"></div>
         <div class="col-sm-12 col-md-4">
             <div class="section-content">
-                <h4>Se te ha enviado un correo electr&oacute;nico  para la activaci&oacute;n de  tu cuenta</h4>
+                <h4>Se te ha enviado un correo electr&oacute;nico  con los datos de activaci&oacute;n de  tu cuenta</h4>
             </div>
         </div>
     </div>

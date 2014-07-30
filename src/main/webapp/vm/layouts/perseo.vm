@@ -4,8 +4,9 @@
         <title>perseo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <meta name="description" content="Portal Perseo"/>
-        <meta name="author" content="gpmarsan@gmail.com">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="Perseo - Seguridad Movil">
+        <link rel="shortcut icon" href="../img/perseo/favicon2-01.png">
 	
         <!-- css-->
         <link rel="stylesheet" href="../css/bootstrap-3.1.1/bootstrap.min.css" type="text/css">
@@ -38,25 +39,32 @@
                                 <img class="img-responsive" src="../img/perseo/logo_perseo.png" alt="perseo">
                             </a>
                         </div>
+                        #if ($data.activate)
+                            <ul class="nav navbar-nav navbar-right">
+                                <li> <a  target="_blank" class="btn" href="ayuda">Ayuda y soporte</a></li>
+                            </ul>
+                        #else
                         <ul class="nav navbar-nav navbar-right">
-                        
+                        <li><a target="_blank" class="btn" href="../pdf/PERSEO.pdf">Brochure</a></li></li>
+                        <li> <a  class="btn" href="docs">Documentaci&oacute;n</a></li>
+                        <li> <a  class="btn" href="ayuda">Ayuda y soporte</a></li>
                         <li>
-                            <form class="navbar-form navbar-right" action="POST" role="search" onSubmit="return false;">
+                            
                                 #if ($data.create_account == true)
-									<a class="btn btn-success" href="create_account">Crear cuenta</a>
-								#end
-								#if ($data.login == true)
-									<a class="btn btn-success" href="login">Iniciar Sesi&oacute;n</a>
-								#end
-								
-								#if ($data.panel == true)
-									<a class="btn btn-success" href="panel">Panel</a>
-								#end
-								
-								#if ($data.profile == true)
-									<a class="btn btn-success" href="profile">Perfil</a>
-								#end
-                            </form>
+                                        <a class="btn" href="create_account">Registrate</a>
+                                #end
+                                #if ($data.login == true)
+                                        <a class="btn" href="login">Iniciar Sesi&oacute;n</a>
+                                #end
+
+                                #if ($data.panel == true)
+                                        <a class="btn" href="panel">Solicitudes</a>
+                                #end
+
+                                #if ($data.profile == true)
+                                        <a class="btn" href="profile">Perfil</a>
+                                #end
+                            
                         </li>
                         #if ($data.logout == true)
                             <li>
@@ -64,17 +72,14 @@
                             </li>
                         #end
                     </ul>
+                    #end
                     </div>
                 </div>
             </nav>
         </header>
         <!-- content -->
         <div class="row container-body">
-            <div class="container">
-                <div class="row ">
-                    #parse("${view}")
-                </div>
-            </div>
+            #parse("${view}")
         </div>
         #include('./vm/layouts/footer.vm')
     </body>

@@ -54,7 +54,51 @@ public class AppExceptionHandler extends HttpServlet{
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
-        out.write("<html><head><title>Exception/Error Details</title></head><body>");
+        out.write("<html><head>\n" +
+"        <title>perseo</title>\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+"        <meta charset=\"UTF-8\">\n" +
+"        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\">\n" +
+"        <meta name=\"description\" content=\"Perseo - Seguridad Movil\">\n" +
+"        <link rel=\"shortcut icon\" href=\"../img/perseo/favicon2-01.png\">\n" +
+"	\n" +
+"        <!-- css-->\n" +
+"        <link rel=\"stylesheet\" href=\"../css/bootstrap-3.1.1/bootstrap.min.css\" type=\"text/css\">\n" +
+"        <link rel=\"stylesheet\" href=\"../css/perseomx/style.css\" type=\"text/css\">\n" +
+"        \n" +
+"            <!-- libray js-->\n" +
+"            <script src=\"../js/libs/modernizr2.8.1.min.js\"></script>\n" +
+"            <script src=\"../js/libs/jquery1.11.1.min.js\"></script>\n" +
+"            <!-- load assets css and js-->\n" +
+"        \n" +
+"        <!--[if lt IE 9]>\n" +
+"            <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n" +
+"            <script src=\"https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js\"></script>\n" +
+"        <![endif]-->\n" +
+"    </head></head><body><header>\n" +
+"            <nav class=\"navbar navbar-default\" role=\"navigation\">\n" +
+"                <div class=\"container-fluid \">\n" +
+"                    <div class=\"navbar-header\">\n" +
+"                        <button type=\"button\" class=\"navbar-toggle hidden-xs\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n" +
+"                            <span class=\"sr-only\">Toggle navigation</span>\n" +
+"                            <span class=\"icon-bar\"></span>\n" +
+"                            <span class=\"icon-bar\"></span>\n" +
+"                            <span class=\"icon-bar\"></span>\n" +
+"                          </button>\n" +
+"                        <div class=\"navbar-logo\">\n" +
+"                            <a class=\"navbar-brand\" href=\"home\">\n" +
+"                                <img class=\"img-responsive\" src=\"../img/perseo/logo_perseo.png\" alt=\"perseo\">\n" +
+"                            </a>\n" +
+"                        </div>\n" +
+
+"                    </div>\n" +
+"                </div>\n" +
+"            </nav>\n" +
+"        </header><div class=\"row container-body\"><div class=\"row section-title\">\n" +
+"    <div class=\"col-sm-12\">\n" +
+"        <h1>Error </h1><h1>\n" +
+"    </h1></div>\n" +
+"</div><div class=\"container\">");
         if(statusCode != 500){
             out.write("<h3>Error Details</h3>");
             out.write("<strong>Status Code</strong>:"+statusCode+"<br>");
@@ -69,7 +113,7 @@ public class AppExceptionHandler extends HttpServlet{
         }
         
         out.write("<br><br>");
-        out.write("<a href=\"panel\">Panel User</a>");
-        out.write("</body></html>");
+        out.write("<a href=\"panel\">PANEL USER</a>");
+        out.write("<div></div></body></html>");
     }
 }
