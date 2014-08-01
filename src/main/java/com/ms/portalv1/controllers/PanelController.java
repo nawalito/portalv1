@@ -57,6 +57,7 @@ public class PanelController {
         
         HashMap<String, String> succes = new HashMap<>();
         HashMap<String, Object> data = new HashMap<>();
+        
         String username = new String();
         UserSessionData userdata = null;
         

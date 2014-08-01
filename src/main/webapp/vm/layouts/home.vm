@@ -42,9 +42,16 @@
                         <li><a target="_blank" class="btn" href="../pdf/PERSEO.pdf">Brochure</a></li></li>
                         <li> <a  class="btn" href="docs">Documentaci&oacute;n</a></li>
                         <li> <a  class="btn" href="ayuda">Ayuda y soporte</a></li>
+                        #if($data.solicitudes)
+                            <li> <a  class="btn" href="panel">Solicitudes</a></li>
+                        #end
                         <li>
                             <form class="navbar-form navbar-right" action="POST" role="search" onSubmit="return false;">
-                                <a class="btn btn-success" href="login">Ingresar</a>
+                                #if($data.logout)
+                                    <a class="btn" href="../j_spring_security_logout">Cerrar Sesi&oacute;n</a>
+                                #else
+                                    <a class="btn btn-success" href="login">Ingresar</a>
+                                #end
                             </form>
                         </li>
                     </ul>

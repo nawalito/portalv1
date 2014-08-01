@@ -79,7 +79,7 @@ public class UserEditPasswdController {
         data.put("create_account", false);
         data.put("login", false);
         data.put("panel", true);
-        data.put("profile", true);
+        data.put("profile", false);
         data.put("logout", true);
 
         //Command object
