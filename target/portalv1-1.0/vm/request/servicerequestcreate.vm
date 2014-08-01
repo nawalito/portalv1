@@ -1,6 +1,6 @@
 <div class="row section-title">
     <div class="col-sm-12">
-        <h1>formulario de Solicitud<h1>
+        <h1>Solicitud<h1>
     </div>
 </div>
 #set($paises=$ListaPaises)
@@ -16,7 +16,7 @@
     <div class="row">
         <br/>
          <div class="col-sm-5 col-md-offset-1 ">
-            <p class="lbl-section">Es necesario llenar el formulario de solicitud, los campos con * son  requeridos</p>
+            <p class="lbl-section">Es necesario llenar la siguiente solicitud, los campos con * son  requeridos</p>
         </div>
         <div class="col-sm-4 col-md-offset-1">
             <div class="section-content">

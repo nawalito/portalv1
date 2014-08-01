@@ -6,10 +6,11 @@
 <div class="container ">
     <div class="row">
         <div class="col-sm-12">
-            <div class="section-content">
+            <br/>
+            <div class="section-content1">
                 
                 <div class="row">
-                    <div class="col-sm-8"> - Para consultar o realizar una operacion sobre una solicitud existente es necesario buscarlo  con el n&uacute;mero de folio - </div>
+                    <div class="col-sm-8">* Para consultar o realizar una operacion sobre una solicitud existente es necesario hacer una busqueda  con el  n&uacute;mero de folio<br/>* Si no recuerdas tu(s) n&uacute;mero(s) de folio  solitalos y te enviaremos un correo con todos tus folios generados</div>
                     <div class="col-sm-4 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
                 </div>
                 

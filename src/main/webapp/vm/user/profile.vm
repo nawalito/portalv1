@@ -7,7 +7,8 @@
 <br/>
     <div class="row">
         <div class="col-sm-5">
-            <div class="section-content">
+            <br/>
+            <div class="section-content1">
                 <hr/>
                 <form class="form-horizontal " role="form">#springBind("userp")
                    

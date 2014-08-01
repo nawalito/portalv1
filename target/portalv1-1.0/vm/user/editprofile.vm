@@ -6,8 +6,8 @@
 <div class="container ">
     <div class="row">
 <br/>
-        <div class="col-sm-5">
-            <div class="section-content">
+        <div class="col-sm-5"><br/>
+            <div class="section-content1">
                 <hr/>
                 <form name="updatep" method="post" action="edit_profile" role="form" class="form-horizontal">
                     #springBind("userp")

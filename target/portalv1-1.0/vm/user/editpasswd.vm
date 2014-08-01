@@ -6,8 +6,8 @@
 <div class="container ">
 <br/>
     <div class="row">
-        <div class="col-sm-5">
-            <div class="section-content">
+        <div class="col-sm-5"><br/>
+            <div class="section-content1">
                 <hr/>
                 <form name="userpwd" method="post" action="edit_passwd" role="form" class="form-horizontal">
                     #springBind("userpwd")

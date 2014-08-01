@@ -19,7 +19,7 @@
     
     <servlet-mapping>
         <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/control/*</url-pattern>
+        <url-pattern>/perseo/*</url-pattern>
     </servlet-mapping>
     
     <!-- Spring Security -->
