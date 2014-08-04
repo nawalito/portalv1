@@ -373,7 +373,7 @@ public class RequestSpringDao implements RequestInterfaceDao{
             + "usr_request.total_msj,"
             + "(CASE WHEN usr_contract.contract_date is null THEN '' ELSE DATE(usr_contract.contract_date) END) AS fcontrato,"
             + "(CASE WHEN usr_contract.expiration_date is null THEN '' ELSE DATE(usr_contract.expiration_date) END) AS fvencimiento,"
-            + "(CASE usr_request.estatus WHEN 0 then 'Nuevo' WHEN 1 then 'Activo' WHEN 2 then 'Suspendido' WHEN 3 then 'Vencido' WHEN 4 then 'Cancelado' WHEN 5 then 'En proceso de Activacion' END) AS estatus,"
+            + "(CASE usr_request.estatus WHEN 0 then 'Nuevo' WHEN 1 then 'Activo' WHEN 2 then 'Suspendido' WHEN 3 then 'Vencido' WHEN 4 then 'Cancelado' WHEN 5 then 'En proceso de Activacion' WHEN 6 then 'En proceso de Suspension' WHEN 7 then 'En proceso de Cancelacion' END) AS estatus,"
             + "usr_request.estatus AS status_code "
         + "from usr_request "
         + "join sys_usr on sys_usr.id=usr_request.sys_usr_id "
@@ -474,5 +474,50 @@ public class RequestSpringDao implements RequestInterfaceDao{
         
         return hm;
     }
+    //Buscar telefono si no esta registrado para el mismo usuario
+    //Siempre y cuando no este cancelado no esté 3=Vencido y 4=Cancelado
+    @Override
+    public int getCountPhoneForUser(String phone, String id_user_code, boolean verify_country) {
+        int valor_retorno=0;
+        String sql = "";
+        if(verify_country){
+            sql = "select count(usr_request.id) as count from usr_request join sys_usr on sys_usr.id=usr_request.sys_usr_id where sys_usr.encod='"+id_user_code+"' and concat(usr_request.coutry_code,usr_request.area_code,usr_request.phone)="+phone+" and  usr_request.estatus not in (3,4)";
+        }else{
+            sql = "select count(usr_request.id) as count from usr_request join sys_usr on sys_usr.id=usr_request.sys_usr_id where sys_usr.encod='"+id_user_code+"' and concat(usr_request.area_code,usr_request.phone)="+phone+" and  usr_request.estatus not in (3,4)";
+        }
+        
+        System.out.println("getCountPhone: "+sql);
+        try{
+            Map<String, Object> count = this.getJdbcTemplate().queryForMap(sql);
+            valor_retorno = Integer.valueOf(count.get("count").toString());
+        }catch(NumberFormatException | DataAccessException ex){
+            valor_retorno=0;
+        }
+        return valor_retorno;
+    }
+    
+    
+    
+    @Override
+    public int getCountPhoneForOtherUser(String phone, String id_user_code, boolean verify_country) {
+        int valor_retorno=0;
+        String sql = "";
+        
+        if(verify_country){
+            sql = "select count(usr_request.id) as count from usr_request join sys_usr on sys_usr.id=usr_request.sys_usr_id where sys_usr.encod!='"+id_user_code+"' and concat(usr_request.coutry_code,usr_request.area_code,usr_request.phone)="+phone+";";
+        }else{
+            sql = "select count(usr_request.id) as count from usr_request join sys_usr on sys_usr.id=usr_request.sys_usr_id where sys_usr.encod!='"+id_user_code+"' and concat(usr_request.area_code,usr_request.phone)="+phone+";";
+        }
+        
+        System.out.println("getCountPhone: "+sql);
+        try{
+            Map<String, Object> count = this.getJdbcTemplate().queryForMap(sql);
+            valor_retorno = Integer.valueOf(count.get("count").toString());
+        }catch(NumberFormatException | DataAccessException ex){
+            valor_retorno=0;
+        }
+        return valor_retorno;
+    }
+
     
 }

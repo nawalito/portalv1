@@ -1,6 +1,6 @@
 <div class="row section-title">
     <div class="col-sm-12">
-        <h1>Solicitudes<h1>
+        <h1> 4.- <span class="glyphicon glyphicon-saved"> </span> Solicitudes<h1>
     </div>
 </div>
 <div class="container ">
@@ -8,9 +8,11 @@
         <div class="col-sm-12">
             <br/>
             <div class="section-content1">
-                
                 <div class="row">
-                    <div class="col-sm-8">* Para consultar o realizar una operacion sobre una solicitud existente es necesario hacer una busqueda  con el  n&uacute;mero de folio<br/>* Si no recuerdas tu(s) n&uacute;mero(s) de folio  solitalos y te enviaremos un correo con todos tus folios generados</div>
+                    <div class="col-sm-8">
+                        <p >* Para consultar o realizar una operacion sobre una solicitud existente es necesario hacer una busqueda  con el  n&uacute;mero de folio</p>
+                        <p >* Si no recuerdas tu(s) n&uacute;mero(s) de folio  solicitalos y revisa tu correo</p>
+                    </div>
                     <div class="col-sm-4 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
                 </div>
                 

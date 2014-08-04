@@ -37,4 +37,6 @@ public interface RequestInterfaceDao {
     public ArrayList<LinkedHashMap<String, String>> getFoliosUser(String idUserCod);
     
     public HashMap<String, Object> getDataRenew(String folio, String idUserCod);
+    public int getCountPhoneForUser(String phone, String id_user_code,boolean verify_country);
+    public int getCountPhoneForOtherUser(String phone, String id_user_code,boolean verify_country);
 }

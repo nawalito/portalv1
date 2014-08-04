@@ -8,7 +8,7 @@
         <br/>
         <div class="col-sm-12 col-md-8 col-md-offset-2">
             <div class="section-content">
-                <p class="lbl-section">*Ingresa el c&oacute;digo que se te ha enviado a tu correo electr&oacute;nico para  activar tu cuenta<br/> &nbsp;</p>
+                <p class="lbl-section">Ingresa el c&oacute;digo de activaci&oacute;n que se te envi&oacute; a tu correo electr&oacute;nico para activar la cuenta<br/> &nbsp;</p>
                 <form name="activate" method="post" action="activate" role="form" class="form-horizontal" >
                     #springBind("activate")
                     #springFormHiddenInput("activate.user" " ")

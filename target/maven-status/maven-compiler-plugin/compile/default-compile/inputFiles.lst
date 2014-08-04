@@ -46,4 +46,5 @@
 /Users/alex/Documents/proyectos/portalv1/src/main/java/com/ms/common/helpers/XmlHelper.java
 /Users/alex/Documents/proyectos/portalv1/src/main/java/com/ms/portalv1/models/UserProfile.java
 /Users/alex/Documents/proyectos/portalv1/src/main/java/com/ms/portalv1/controllers/PanelUserController_DEPRECADO.java
+/Users/alex/Documents/proyectos/portalv1/src/main/java/com/ms/portalv1/controllers/ServiceRequestUpdateController.java
 /Users/alex/Documents/proyectos/portalv1/src/main/java/com/ms/portalv1/springdaos/GralSpringDao.java

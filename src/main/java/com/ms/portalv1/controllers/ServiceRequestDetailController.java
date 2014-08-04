@@ -88,6 +88,7 @@ public class ServiceRequestDetailController {
             srd.setContractDate(arrayData.get(0).get("fcontrato"));
             srd.setExpirationDate(arrayData.get(0).get("fvencimiento"));
             srd.setStatus(arrayData.get(0).get("estatus"));
+            srd.setFrecuencyMsj(arrayData.get(0).get("frecuencia_msj"));
             data.put("statuscode", arrayData.get(0).get("status_code"));
         }
         

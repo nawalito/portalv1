@@ -1,6 +1,6 @@
 <div class="row section-title">
     <div class="col-sm-12">
-        <h1>Solicitudes<h1>
+        <h1> 5.- <span class="glyphicon glyphicon-ok-circle"> </span> Detalle de la Solicitud<h1>
     </div>
 </div>
 <div class="container ">
@@ -9,7 +9,7 @@
             <br/>
             <div class="section-content1">
                 <div class="row">
-                    <div class="col-sm-8"> * Para consultar o realizar una operacion sobre una solicitud existente es necesario hacer una busqueda  con el  n&uacute;mero de folio<br/>* Si no recuerdas tu(s) n&uacute;mero(s) de folio  solitalos y revisa tu correo</div>
+                    <div class="col-sm-8"> * Para consultar o realizar una operacion sobre una solicitud existente es necesario hacer una busqueda  con el  n&uacute;mero de folio<br/>* Si no recuerdas tu(s) n&uacute;mero(s) de folio  solicitalos y revisa tu correo</div>
                     <div class="col-sm-4 text-right"><a class="btn btn-default" href="servicerequest_create">Nueva Solicitud</a></div>
                 </div>
                 
@@ -37,72 +37,73 @@
                     <div class="row">
                         <form name="detail" method="get" action="servicerequest_renew" role="form" class="form-horizontal">
 							
-							#springFormHiddenInput("detail.folio" " ")
+                            #springFormHiddenInput("detail.folio" " ")
 							
                             <div class="form-group">
-                                <label for="codearea" class="col-sm-2 control-label">Status</label>
-                                <div class="col-sm-6"><label class="control-label">${detail.status}</label></div>
-                            </div>
-							
-                            <div class="form-group">
+                                <label for="codearea" class="col-sm-3 control-label">Status</label>
+                                <div class="col-sm-2"><label class="control-label">${detail.status}</label></div>
+                            
                                 <label for="country" class="col-sm-2     control-label">Pa&iacute;s</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.country" "class='form-control' autofocus placeholder='Pa&iacute;s' readonly")
                                 </div>
+                            </div>
 
+                            <div class="form-group">
                                 <label for="codecountry" class="col-sm-3 control-label">C&oacute;digo de Pa&iacute;s</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.codecountry" "class='form-control' placeholder='C&oacute;digo de Pa&iacute;s' readonly")
                                 </div>
-                            </div>
-
-                            <div class="form-group">
+                            
                                 <label for="codearea" class="col-sm-2 control-label">C&oacute;digo de Area</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.codeArea" "class='form-control' placeholder='C&oacute;digo de Area' readonly")
                                 </div>
-                                
+                            </div>
+
+                            <div class="form-group">    
                                 <label for="codearea" class="col-sm-3 control-label">Tel&eacute;fono</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.phone" "class='form-control' placeholder='Tel&eacute;fono' readonly")
                                 </div>
-                            </div>
-
                             
-
-                            <div class="form-group">
                                 <label for="codearea" class="col-sm-2 control-label">Tipo de Licencia</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.typeLicense" "class='form-control' placeholder='Tipo de Licencia' readonly")
                                 </div>
-                                
+                            </div>
+
+                            <div class="form-group"> 
                                 <label for="codearea" class="col-sm-3 control-label">Cantidad de Mensajes</label>
-                                <div class="col-sm-3">
+                                <div class="col-sm-2">
                                     #springFormInput("detail.totalMsj" "class='form-control' placeholder='Total Mensajes' readonly")
                                 </div>
-
+                                
+                                <label for="codearea" class="col-sm-2 control-label">Frecuencia de Mensajes</label>
+                                <div class="col-sm-2">
+                                    #springFormInput("detail.frecuencyMsj" "class='form-control' placeholder='Fecha Contrato' readonly")
+                                </div>
+                                
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="codearea" class="col-sm-2 control-label">Fecha del Contrato</label>
-                                <div class="col-sm-3">
+
+                             <div class="form-group"> 
+                                <label for="codearea" class="col-sm-3 control-label">Fecha del Contrato</label>
+                                <div class="col-sm-2">
                                     #springFormInput("detail.contractDate" "class='form-control' placeholder='Fecha Contrato' readonly")
                                 </div>
 
-                                <label for="codearea" class="col-sm-3 control-label">Fecha de vencimiento</label>
-                                <div class="col-sm-3">
+                                <label for="codearea" class="col-sm-2 control-label">Fecha de vencimiento</label>
+                                <div class="col-sm-2">
                                     #springFormInput("detail.expirationDate" "class='form-control' placeholder='Fecha Vencimiento' readonly")
                                 </div>
+                            
                             </div>
                             
 	
                             <div class="form-group text-center">
-                                #if ($data.statuscode==2)
-                                    <a data-toggle="modal"  data-target="#verifyUser" href="servicerequest_update"><strong> Actualizar solicitud</strong></a>
-                                #end
-
+                                
                                 #if ($data.statuscode==1)<br/>
-                                    * Para realizar cualquier  cambio en la solicitud primero debe relizar una suspensi&oacute;n temporal del servicio.
+                                    * Para actualizar los datos, debe realizar una suspensi&oacute;n temporal.
                                 #end
                                 <hr>
                                 <div class="col-sm-12 text-right">
@@ -117,6 +118,7 @@
                                     #end
                                     
                                     #if ($data.statuscode==2)
+                                        <a class="btn btn-info" href="servicerequest_update?folio=$detail.folio"><strong class="lbl-section"> Editar</strong></a>
                                         <a data-toggle="modal"  data-target="#verifyUser" href="#services/reactivate.json" class="btn btn-info" > Reactivar </a>
                                     #end
                                     

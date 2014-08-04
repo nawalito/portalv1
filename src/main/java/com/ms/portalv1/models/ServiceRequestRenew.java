@@ -13,10 +13,56 @@ package com.ms.portalv1.models;
  * 13/julio/2014
  */
 public class ServiceRequestRenew {
+    String ident;
     String folio;
+    String pais;
     String codeArea;
     String phone;
+    String typeLicence;
+    String totalMessage;
+    String frecuencyMessage;
+    public String getTypeLicence() {
+        return typeLicence;
+    }
 
+    public void setTypeLicence(String typeLicence) {
+        this.typeLicence = typeLicence;
+    }
+
+    public String getTotalMessage() {
+        return totalMessage;
+    }
+
+    public void setTotalMessage(String totalMessage) {
+        this.totalMessage = totalMessage;
+    }
+
+    public String getFrecuencyMessage() {
+        return frecuencyMessage;
+    }
+
+    public void setFrecuencyMessage(String frecuencyMessage) {
+        this.frecuencyMessage = frecuencyMessage;
+    }
+    
+    
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+    
+    
+    public String getIdent() {
+        return ident;
+    }
+    
+    public void setIdent(String ident) {
+        this.ident = ident;
+    }
+    
     public String getFolio() {
         return folio;
     }

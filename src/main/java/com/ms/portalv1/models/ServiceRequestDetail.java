@@ -22,6 +22,15 @@ public class ServiceRequestDetail {
     String phone;
     String typeLicense;
     String totalMsj;
+    String frecuencyMsj;
+
+    public String getFrecuencyMsj() {
+        return frecuencyMsj;
+    }
+
+    public void setFrecuencyMsj(String frecuencyMsj) {
+        this.frecuencyMsj = frecuencyMsj;
+    }
     String contractDate;
     String expirationDate;
 

@@ -1,6 +1,6 @@
 <div class="row section-title">
     <div class="col-sm-12">
-        <h1>Solicitud<h1>
+        <h1><span class="glyphicon glyphicon-edit"> </span> Editar Solicitud <h1>
     </div>
 </div>
 #set($paises=$ListaPaises)
@@ -16,25 +16,35 @@
     <div class="row">
         <br/>
          <div class="col-sm-5 col-md-offset-1 ">
-            <p class="lbl-section">Es necesario llenar la siguiente solicitud, los campos con * son  requeridos</p>
+            <p class="lbl-section">Debe reactivar el servicio una vez hecho los cambios</p>
         </div>
-        <div class="col-sm-4 col-md-offset-1">
+        <div class="col-sm-5">
             <div class="section-content">
-                <form name="servicerequest" method="post" action="servicerequest_create" role="form" class="form-horizontal">
-                    #springBind("servicer")
+                <form name="update" method="post" action="servicerequest_update" role="form" class="form-horizontal">
+                    #springBind("update")
 					
+					#springFormHiddenInput("update.folio" " ")
+                    <div class="form-group">
+                        <label for="country" class="col-sm-4 control-label">Folio</label>
+                        <div class="col-sm-6"><label class="control-label">${update.folio}</label></div>
+                    </div>
                     <div class="form-group">
                         <label for="country" class="col-sm-4 control-label">* Pa&iacute;s</label>
                         <div class="col-sm-8">
-                            #springFormSingleSelect("servicer.pais" $Countrys "class='form-control' autofocus")
-                            #springShowErrors("<br />", "error")
+							<select id="pais" name="pais" autofocus class="form-control" readonly>
+								#foreach($pais in $paises)
+									#if($data.dataUpdate.coutry_code == ${pais.code} )
+										<option value="${pais.code}" selected>${pais.pais}</option>
+									#end
+								#end
+							</select>
                         </div>
                     </div>
-
+					
                     <div class="form-group">
                         <label for="typelicence" class="col-sm-4 control-label">* C&oacute;digo de Area</label>
                         <div class="col-sm-8">
-                            #springFormInput("servicer.codeArea" "class='form-control' placeholder=''")
+                            #springFormInput("update.codeArea" "class='form-control' placeholder='Area'")
                             #springShowErrors("<br />", "error")
                         </div>
                     </div>
@@ -42,7 +52,7 @@
                     <div class="form-group">
                         <label for="typelicence" class="col-sm-4 control-label">* Tel&eacute;fono</label>
                         <div class="col-sm-8">
-                            #springFormInput("servicer.phone" "class='form-control' placeholder=''")
+                            #springFormInput("update.phone" "class='form-control' placeholder='Tel&eacute;fono'")
                             #springShowErrors("<br />", "error")
                         </div>
                     </div>
@@ -51,8 +61,14 @@
                     <div class="form-group">
                         <label for="typelicence" class="col-sm-4 control-label">* Tipo de Licencia</label>
                         <div class="col-sm-8">
-                            #springFormSingleSelect("servicer.typeLicence" $TLicence "class='form-control'")
-                            #springShowErrors("<br />", "error")
+							<select id="typeLicence" name="typeLicence" class="form-control" readonly>
+								#foreach($sol in $tsolicitudes)
+                                                                    	#if($data.dataUpdate.type_request_id == ${sol.id} )
+                                                                        
+										<option value="${sol.id}" selected>${sol.title}</option>
+									#end
+								#end
+							</select>
                         </div>
                     </div>
 
@@ -60,24 +76,39 @@
                     <div class="form-group">
                         <label for="totalMessage" class="col-sm-4     control-label">* Cantidad de Mensajes</label>
                         <div class="col-sm-8">
-                            #springFormSingleSelect("servicer.totalMessage" $TotalMessage "class='form-control'")
-                            #springShowErrors("<br />", "error")
+							<select id="totalMessage" name="totalMessage" class="form-control">
+								#foreach($cmsj in $cantmsjs)
+									#if($data.dataUpdate.total_msj == ${cmsj.quantity} )
+										<option value="${cmsj.quantity}" selected>${cmsj.quantity}</option>
+									#else
+										<option value="${cmsj.quantity}">${cmsj.quantity}</option>
+									#end
+								#end
+							</select>
                         </div>
                     </div>
-
+					
+					
                     <div class="form-group">
                         <label for="frecuencynotification" class="col-sm-4     control-label">* Frecuencia de Notificaci&oacute;n</label>
                         <div class="col-sm-8">
-                            #springFormSingleSelect("servicer.frecuencyMessage" $FrecuencyNotification "class='form-control'")
-                            #springShowErrors("<br />", "error")
+							<select id="frecuencyMessage" name="frecuencyMessage" class="form-control">
+								#foreach($fmsj in $fmensajes)
+									#if($data.dataUpdate.frecuency_msj_id == ${fmsj.id} )
+										<option value="${fmsj.id}" selected>${fmsj.title}</option>
+									#else
+										<option value="${fmsj.id}">${fmsj.title}</option>
+									#end
+								#end
+							</select>
                         </div>
                     </div>
-
+					
                     <div class="form-group">
                         <label for="alias" class="col-sm-12 "></label>
                         <div class="col-sm-12 text-right  ">
                             <a href="panel" class="btn btn-primary">Cancelar</a>
-                            <input type="submit" class="btn btn-success" value="Enviar solicitud">
+                            <input type="submit" class="btn btn-success" value="Aceptar">
                         </div>
                     </div>
                 </form>

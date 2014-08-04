@@ -14,6 +14,8 @@ import com.ms.common.helpers.StringHelper;
 import com.ms.portalv1.interfacedaos.GralInterfaceDao;
 import com.ms.portalv1.interfacedaos.RequestInterfaceDao;
 import com.ms.portalv1.models.ServiceRequest;
+import com.ms.portalv1.models.ServiceRequestRenew;
+import com.ms.portalv1.validators.ServiceRequestRenewValidator;
 import com.ms.portalv1.validators.ServiceRequestValidator;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +32,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
@@ -44,9 +47,9 @@ import org.springframework.web.servlet.ModelAndView;
 @SessionAttributes({"user"})
 @RequestMapping("/servicerequest_update")
 public class ServiceRequestUpdateController {
-    private static final Logger log = Logger.getLogger(ServiceRequestController.class.getName());
+   private static final Logger log = Logger.getLogger(ServiceRequestRenewController.class.getName());
     ResourceProject resource = new ResourceProject();
-    ServiceRequestValidator serviceRequestValidator = new ServiceRequestValidator();
+    ServiceRequestRenewValidator serviceRequestRenewValidator = new ServiceRequestRenewValidator();
     
     @Autowired
     @Qualifier("daoRequest")
@@ -56,28 +59,40 @@ public class ServiceRequestUpdateController {
     @Qualifier("daoGral")
     private GralInterfaceDao GralDao;
     
-    
     @Autowired
     public ServiceRequestUpdateController(ServiceRequestValidator serviceRequestValidator) {
-        this.setServiceRequestValidator(serviceRequestValidator);
+        //this.setServiceRequestValidator(serviceRequestValidator);
         resource.setLayout(resource.getDirLayout() +"perseo.vm");
     }
     
     
+    
     @RequestMapping(method = RequestMethod.GET)
-    public String initForm(HttpServletRequest request, @ModelAttribute("user") UserSessionData userData, ModelMap model){
+     public String initForm(
+            HttpServletRequest request, 
+            @ModelAttribute("user") UserSessionData userSessionData, 
+            ModelMap model
+    ){
+     
         HashMap<String, Object> data = new HashMap<>();
-        LinkedHashMap<String,String>  typeLicence = new LinkedHashMap<>();
-        ServiceRequest sr = new ServiceRequest();
+        HashMap<String, Object> dataUpdate = new HashMap<>();
+        ServiceRequestRenew srr = new ServiceRequestRenew();
+        HashMap<String, Object> elementHtml = new HashMap<>();
+        
+        System.out.println("getUserIdCod: "+userSessionData.getUserIdCod());
+        System.out.println("getUserId: "+userSessionData.getUserId());
+        System.out.println("ParameterFolio: "+request.getParameter("folio"));
         
         
-        if(this.getRequestDao().countUserRequest(userData.getUserIdCod())>0){
-            typeLicence = this.getRequestDao().getTypeLicence(false);
-        }else{
-            typeLicence = this.getRequestDao().getTypeLicence(true);
-        }
         
-        data.put("typeLicence", typeLicence);
+        
+        dataUpdate = this.getRequestDao().getDataRenew(request.getParameter("folio"), String.valueOf(userSessionData.getUserId()));
+        
+        srr.setCodeArea(dataUpdate.get("area_code").toString());
+        srr.setPhone(dataUpdate.get("phone").toString());
+        srr.setFolio(request.getParameter("folio"));
+        
+        data.put("dataUpdate", dataUpdate);
         
         //Mostrar aciones
         data.put("create_account", false);
@@ -86,51 +101,58 @@ public class ServiceRequestUpdateController {
         data.put("profile", false);
         data.put("logout", true);
         
+        data.put("title", "actualizar servicio");
         
         //Command object
-        model.addAttribute("servicer", sr);
+        model.addAttribute("update", srr);
         model.addAttribute("layout", resource.getLayout());
         model.addAttribute("view",resource.getDirViews()+"request/update.vm" );
         model.addAttribute("data",data);
         
+        
         //return form view
         return "index";
     }
-    
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView processSubmit(@ModelAttribute("user") UserSessionData userSessionData, @ModelAttribute("servicer") ServiceRequest serviveRequest, BindingResult result, SessionStatus status, Model model) {
+    public ModelAndView processSubmit(
+            @ModelAttribute("user") UserSessionData userSessionData, 
+            @ModelAttribute("update") ServiceRequestRenew serviceRequestUpdate, 
+            @RequestParam(value = "folio", required = true) String folio,
+            @RequestParam(value = "pais", required = true) String pais, 
+            @RequestParam(value = "codeArea", required = true) String codeArea, 
+            @RequestParam(value = "phone", required = true) String phone, 
+            @RequestParam(value = "typeLicence", required = true) String typeLicence, 
+            @RequestParam(value = "totalMessage", required = true) String totalMessage, 
+            @RequestParam(value = "frecuencyMessage", required = true) String frecuencyMessage, 
+            
+            BindingResult result, 
+            SessionStatus status, 
+            Model model
+    ) {
+        ModelAndView viewUpdateRequest;
         HashMap<String, Object> data = new HashMap<>();
-        LinkedHashMap<String,String>  typeLicence = new LinkedHashMap<>();
-        
-        ModelAndView x = null;
-        
-        serviveRequest.setIdent(userSessionData.getUserIdCod());
-        serviveRequest.setFolio("0");
-        
-        this.getServiceRequestValidator().initValidator(this.getRequestDao());
-        
-        this.getServiceRequestValidator().validate(serviveRequest, result);
+//        serviveRequestUpdate.setFolio("0");
+        serviceRequestUpdate.setIdent(userSessionData.getUserIdCod());
+        this.getServiceRequestRenewValidator().validate(serviceRequestUpdate, result);
         
         if (result.hasErrors()) {
+            //Mostrar aciones
+            data.put("create_account", false);
+            data.put("login", false);
+            data.put("panel", true);
+            data.put("profile", true);
+            data.put("logout", true);
             
-            if(this.getRequestDao().countUserRequest(userSessionData.getUserIdCod())>0){
-                typeLicence = this.getRequestDao().getTypeLicence(false);
-            }else{
-                typeLicence = this.getRequestDao().getTypeLicence(true);
-            }
             
-            data.put("typeLicence", typeLicence);
+            viewUpdateRequest= new ModelAndView("index");
+
+            viewUpdateRequest.addObject("layout", resource.getLayout());
+            viewUpdateRequest.addObject("view",resource.getDirViews()+"request/update.vm" );
+            viewUpdateRequest.addObject("data",data);
             
-            x = new ModelAndView("index");
-            x = x.addObject("layout", resource.getLayout());
-            x = x.addObject("view",resource.getDirViews()+"request/update.vm" );
-            x = x.addObject("data",data);
-            
-            return x;
+            return viewUpdateRequest;
         }else{
-            if(!serviveRequest.getIdent().equals("")){
-                //Actualizar
-                //status.setComplete();
+             if(!serviceRequestUpdate.getIdent().equals("")){
                 Map<String, Object> success = new HashMap<>();
                 Map<String, Object> success2 = new HashMap<>();
                 ArrayList<LinkedHashMap<String, String>> dataRequest = new ArrayList<> ();
@@ -138,48 +160,21 @@ public class ServiceRequestUpdateController {
                 String retorno="";
                 String actualizo="0";
                 String msj_envio="";
-                String folio="";
-                String commandd_selected = "new_request";
                 
-                String data_string = commandd_selected+"___"+serviveRequest.getIdent()+"___"+serviveRequest.getFolio()+"___"+numeroReferencia+"___"+serviveRequest.getPais()+"___"+serviveRequest.getCodeArea()+"___"+serviveRequest.getPhone()+"___"+serviveRequest.getTypeLicence()+"___"+serviveRequest.getTotalMessage()+"___"+serviveRequest.getFrecuencyMessage();
-                
+                String commandd_selected = "update_request";
+                String data_string = commandd_selected+"___"+serviceRequestUpdate.getIdent()+"___"+serviceRequestUpdate.getFolio()+"___"+numeroReferencia+"___"+serviceRequestUpdate.getPais()+"___"+serviceRequestUpdate.getCodeArea()+"___"+serviceRequestUpdate.getPhone()+"___"+serviceRequestUpdate.getTypeLicence()+"___"+serviceRequestUpdate.getTotalMessage()+"___"+serviceRequestUpdate.getFrecuencyMessage();
                 success = this.getRequestDao().callStoredProcedureAdmServiceRequest(data_string);
                 
                 if(success.get("success_").equals("1")){
-                    System.out.println("SE HA DADO DE ALTA LA SOLICITUD");
-                    
+                    System.out.println("SE HA actualizado la SOLICITUD");
                     folio = String.valueOf(success.get("folio_"));
                     
                     System.out.println("folio: "+folio);
-                    System.out.println("getUserIdCod: "+userSessionData.getUserIdCod());
-                    dataRequest = this.getRequestDao().getDataServiceRequest(folio, userSessionData.getUserIdCod());
                     
-                    System.out.println("Tipo de paquete: "+dataRequest.get(0).get("clase_paquete").toUpperCase());
-                    
-                    if(dataRequest.size()>0){
-                        
-                        if(!dataRequest.get(0).get("clase_paquete").toUpperCase().trim().equals("FREE")){
-                            //Si es diferente de FREE  entonces se debe generar numero de referencia y enviar correo
-                            
-                            CalculaDigitoVerificador dv = new CalculaDigitoVerificador();
-                            
-                            String noRefSinDv= String.valueOf(success.get("noref_"));
-                            
-                            numeroReferencia = noRefSinDv + String.valueOf(dv.modulo10(noRefSinDv));
-                            
-                            data_string = "update_noref" +"___"+ serviveRequest.getIdent()+"___"+String.valueOf(success.get("folio_"))+"___"+numeroReferencia+"___"+""+"___"+""+"___"+""+"___"+"0"+"___"+"0"+"___"+"0";
-                            
-                            success2 = this.getRequestDao().callStoredProcedureAdmServiceRequest(data_string);
-                            
-                            if(success2.get("success_").equals("1")){
-                                retorno="Registro de Solicitud exitoso!";
-                            }
-                        }
-                    }
                 }
-                
-                
-                //Mostrar aciones
+             }
+              //Mostrar aciones
+                data = new HashMap<>();
                 data.put("create_account", false);
                 data.put("login", false);
                 data.put("panel", true);
@@ -188,25 +183,22 @@ public class ServiceRequestUpdateController {
                 
                 //data.put("new", "true");
                 //data.put("panel", "false");
-                data.put("msj", msj_envio);
+                data.put("msj", "Proceso realizado correctamente");
                 
                 
                 
-                x = new ModelAndView("index");
-                x = x.addObject("userp", data);
-                x = x.addObject("layout", resource.getLayout());
-                x = x.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
-                x = x.addObject("data",data);
+                viewUpdateRequest = new ModelAndView("index");
+                viewUpdateRequest.addObject("userp", data);
+                viewUpdateRequest.addObject("layout", resource.getLayout());
+                viewUpdateRequest.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
+                viewUpdateRequest.addObject("data",data);
                 
-                return x;
-            }
-        }
-        
-        return x;
+                return viewUpdateRequest;
+         }
     }
     
+     
     //******Retorna ArrayList****************************************/
-    
     @ModelAttribute("ListaPaises")
     public ArrayList<LinkedHashMap<String,String>>  countryList() {
         ArrayList<LinkedHashMap<String,String>> country = new ArrayList<LinkedHashMap<String,String>>();
@@ -214,9 +206,14 @@ public class ServiceRequestUpdateController {
         return country;
     }
     
+    
+   
+    
+    
     @ModelAttribute("ListaTiposSolicitud")
-    public ArrayList<LinkedHashMap<String,String>>  typeLicenceList() {
+    public ArrayList<LinkedHashMap<String,String>>  notTrialLicence() {
         ArrayList<LinkedHashMap<String,String>> lista = new ArrayList<LinkedHashMap<String,String>>();
+        //Se le pasa parametro false para que no incluya tipos de contratos de prueba
         lista = this.getRequestDao().getTiposSolicitud(true);
         return lista;
     }
@@ -236,50 +233,7 @@ public class ServiceRequestUpdateController {
     }
     
     
-    
-    //******Retorna HashMap****************************************/
-    /*
-    @ModelAttribute("TypeLicence")
-    public LinkedHashMap<String,String>  typeLicence() {
-        LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
-        lista = this.getRequestDao().getTypeLicence();
-        return lista;
-    }
-    */
-    @ModelAttribute("Countrys")
-    public LinkedHashMap<String,String>  countrys() {
-        LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
-        lista = this.getRequestDao().getCountrys();
-        return lista;
-    }
-    
-    @ModelAttribute("FrecuencyNotification")
-    public LinkedHashMap<String,String>  frecuencyNotification() {
-        LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
-        lista = this.getRequestDao().getFrecuencyNotification();
-        return lista;
-    }
-    
-    @ModelAttribute("TotalMessage")
-    public LinkedHashMap<String,String>  totalMessage() {
-        LinkedHashMap<String,String> lista = new LinkedHashMap<String,String>();
-        lista = this.getRequestDao().getTotalMessage();
-        return lista;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public ResourceProject getResource() {
+     public ResourceProject getResource() {
         return resource;
     }
 
@@ -287,12 +241,13 @@ public class ServiceRequestUpdateController {
         this.resource = resource;
     }
 
-    public ServiceRequestValidator getServiceRequestValidator() {
-        return serviceRequestValidator;
+
+    public ServiceRequestRenewValidator getServiceRequestRenewValidator() {
+        return serviceRequestRenewValidator;
     }
 
-    public void setServiceRequestValidator(ServiceRequestValidator serviceRequestValidator) {
-        this.serviceRequestValidator = serviceRequestValidator;
+    public void setServiceRequestRenewValidator(ServiceRequestRenewValidator serviceRequestRenewValidator) {
+        this.serviceRequestRenewValidator = serviceRequestRenewValidator;
     }
 
     public RequestInterfaceDao getRequestDao() {
@@ -306,4 +261,7 @@ public class ServiceRequestUpdateController {
     public GralInterfaceDao getGralDao() {
         return GralDao;
     }
+    
+
+
 }

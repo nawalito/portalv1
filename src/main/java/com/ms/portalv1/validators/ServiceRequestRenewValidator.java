@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.ms.portalv1.validators;
 
 import com.ms.portalv1.interfacedaos.RequestInterfaceDao;
-import com.ms.portalv1.models.ServiceRequest;
 import com.ms.portalv1.models.ServiceRequestRenew;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -19,6 +12,20 @@ import org.springframework.validation.Validator;
  */
 public class ServiceRequestRenewValidator implements Validator{
     private static final String PATTERN_NUMERIC = "[0-9]*";
+    
+    private RequestInterfaceDao RequestDao;
+
+    public RequestInterfaceDao getRequestDao() {
+        return RequestDao;
+    }
+
+    public void setRequestDao(RequestInterfaceDao RequestDao) {
+        this.RequestDao = RequestDao;
+    }
+
+    public void initValidator(RequestInterfaceDao RequestDao) {
+        this.setRequestDao(RequestDao);
+    }
     
     @Override
     public boolean supports(Class clazz) {
@@ -60,6 +67,19 @@ public class ServiceRequestRenewValidator implements Validator{
             errors.rejectValue("codeArea", "required.codeArea");
         }
         
-
+        if(!errors.hasFieldErrors("codeArea") && !errors.hasFieldErrors("phone")){
+            
+            System.out.println("srr.getCodeArea(): "+srr.getCodeArea());
+            System.out.println("srr.getPhone(): "+srr.getPhone());
+            System.out.println("srr.getIdent(): "+srr.getIdent());
+            
+            if(this.getRequestDao().getCountPhoneForUser(srr.getCodeArea()+srr.getPhone(),srr.getIdent(), false)>0){
+                errors.rejectValue("phone", "repeateduser.phone");
+            }else{
+                if(this.getRequestDao().getCountPhoneForOtherUser(srr.getCodeArea()+srr.getPhone(),srr.getIdent(), false)>0){
+                    errors.rejectValue("phone", "repeateduser.phone");
+                }
+            }
+        }
     }
 }

@@ -1,13 +1,13 @@
 <div class="row section-title">
     <div class="col-sm-12">
-        <h1>Registro<h1>
+        <h1>1.-  <span class="glyphicon glyphicon-list-alt"></span>  Registro<h1>
     </div>
 </div>
 <div class="container">
     <div class="row ">
-        <div class="col-sm-12  col-md-5 col-md-offset-1">
+        <div class="col-sm-12  col-md-6 col-md-offset-1">
             <br/>
-            <p class="lbl-section">Para solicitar el servicio de protecci&oacute;n de voz y datos debe de llenar el fomulario para la creaci&oacute;n de su cuenta</p>
+            <p class="lbl-section">Para solicitar el servicio de protecci&oacute;n de voz y datos personales  es necesario registrarte</p>
         </div>
         <div class="col-sm-12 col-md-4 ">
             <div class="section-content">

@@ -81,6 +81,7 @@ public class ServiceRequestValidator implements Validator{
             errors.rejectValue("phone", "required.phone");
         }
         
+        
         try {
             if (sr.getPais().equals("0") || sr.getPais().equals("") || sr.getPais().isEmpty()) {
                 errors.rejectValue("pais", "required.pais");
@@ -88,6 +89,19 @@ public class ServiceRequestValidator implements Validator{
         } catch (Exception e) {
             errors.rejectValue("pais", "required.pais");
         }
+        
+        
+        if(!errors.hasFieldErrors("pais") && !errors.hasFieldErrors("codeArea") && !errors.hasFieldErrors("phone")){
+            errors.rejectValue("pais", "required.pais");
+            if(this.getRequestDao().getCountPhoneForUser(sr.getPais()+sr.getCodeArea()+sr.getPhone(),sr.getIdent(), true)>0){
+                errors.rejectValue("phone", "repeateduser.phone");
+            }else{
+                if(this.getRequestDao().getCountPhoneForOtherUser(sr.getPais()+sr.getCodeArea()+sr.getPhone(),sr.getIdent(), true)>0){
+                    errors.rejectValue("phone", "repeateduser.phone");
+                }
+            }
+        }
+        
         
         try {
             if (sr.getTypeLicence().equals("0") || sr.getTypeLicence().equals("") || sr.getTypeLicence().isEmpty()) {

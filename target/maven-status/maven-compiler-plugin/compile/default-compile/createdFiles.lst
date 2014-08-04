@@ -1,3 +1,4 @@
+com/ms/portalv1/controllers/ServiceRequestUpdateController.class
 com/ms/common/helpers/DatagridHelper.class
 com/ms/portalv1/controllers/ServiceRequestDetailController.class
 com/ms/common/helpers/FileHelper.class
