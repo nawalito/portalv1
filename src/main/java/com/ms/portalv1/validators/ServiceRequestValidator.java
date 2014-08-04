@@ -83,6 +83,7 @@ public class ServiceRequestValidator implements Validator{
         
         
         try {
+            
             if (sr.getPais().equals("0") || sr.getPais().equals("") || sr.getPais().isEmpty()) {
                 errors.rejectValue("pais", "required.pais");
             }
@@ -92,7 +93,6 @@ public class ServiceRequestValidator implements Validator{
         
         
         if(!errors.hasFieldErrors("pais") && !errors.hasFieldErrors("codeArea") && !errors.hasFieldErrors("phone")){
-            errors.rejectValue("pais", "required.pais");
             if(this.getRequestDao().getCountPhoneForUser(sr.getPais()+sr.getCodeArea()+sr.getPhone(),sr.getIdent(), true)>0){
                 errors.rejectValue("phone", "repeateduser.phone");
             }else{
