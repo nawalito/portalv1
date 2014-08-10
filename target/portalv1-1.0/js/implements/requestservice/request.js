@@ -57,13 +57,18 @@ $(function() {
                                 if (data.success !== 'undefined' && data.success === true ) {
                                      mObjForm.find('.alert').removeClass('hidden alert-danger').addClass('alert-success').html(data.message);
                                     $(form).remove();
-                                    $('#verifyUser').modal('hide');
                                     
-                                    var form = $('<form action="panel" method="GET"><input name="reload" type="hidden"></form>');
-                                    $('body').append(form);
-                                    $(form).submit();
+                                    setTimeout(function() {
+                                        $('#verifyUser').modal('hide');
+                                        var form = $('<form action="panel" method="GET"><input name="reload" type="hidden"></form>');
+                                        $('body').append(form);
+                                        $(form).submit();
+
+                                        $(form).remove();
+                                    }, 2500);
                                     
-                                    $(form).remove();
+                                    
+                                    
                                 }else{
                                     mObjForm.find('.alert').removeClass('hidden alert-success').addClass('alert-danger').html(data.message);
                                 }

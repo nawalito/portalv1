@@ -15,10 +15,7 @@
                     <div class="row">
                         <br/>
                         <a class="" href="servicerequest_create"><h4>Presione aqui para llenar una solicitud</h4></a>
-                        
-                        #if ($data.msj != "")
-                            <h4>La solicitud se ha enviado correctamente</h4>
-                        #end
+                       
                         <br/><br/><br/><br/><br/>
                     </div>
                 </div>

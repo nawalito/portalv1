@@ -83,6 +83,7 @@ public class PanelController {
             if(request.isUserInRole("ROLE_USER")){
                 System.out.println("ee"+this.getUserDao().countUserRequest(userdata.getUserIdCod()));
                 if(this.getUserDao().countUserRequest(userdata.getUserIdCod())>0){
+                    //view=resource.getDirViews()+"request/success.vm";
                     view=resource.getDirViews()+"request/searchrequest.vm";
                 }
                
@@ -94,7 +95,7 @@ public class PanelController {
                 data.put("logout", true);
                 
                 //data.put("panel", "true");
-                data.put("msj", "");
+                
                 
                 //Ya tiene solicitudes
                 x = new ModelAndView("index", "title", "Panel de Usuario - Portal Perseo");

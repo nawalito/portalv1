@@ -249,19 +249,19 @@ public class ServiceRequestController {
                 data.put("create_account", false);
                 data.put("login", false);
                 data.put("panel", true);
-                data.put("profile", true);
+                data.put("profile", false);
                 data.put("logout", true);
                 
                 //data.put("new", "true");
                 //data.put("panel", "false");
-                data.put("msj", msj_envio);
+                data.put("message", "Registro de solicitud exitoso con  n&uacute;mero de folio <strong>"+folio+"</strong>");
                 
                 
                 
                 x = new ModelAndView("index");
                 x = x.addObject("userp", data);
                 x = x.addObject("layout", resource.getLayout());
-                x = x.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
+                x = x.addObject("view",resource.getDirViews()+"request/success.vm" );
                 x = x.addObject("data",data);
                 
                 return x;

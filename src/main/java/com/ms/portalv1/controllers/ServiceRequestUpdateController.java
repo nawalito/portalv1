@@ -178,19 +178,19 @@ public class ServiceRequestUpdateController {
                 data.put("create_account", false);
                 data.put("login", false);
                 data.put("panel", true);
-                data.put("profile", true);
+                data.put("profile", false);
                 data.put("logout", true);
                 
                 //data.put("new", "true");
                 //data.put("panel", "false");
-                data.put("msj", "Proceso realizado correctamente");
+                data.put("message", "La solicitud <strong>"+folio+"</strong> se ha actualizado correctamente");
                 
                 
                 
                 viewUpdateRequest = new ModelAndView("index");
                 viewUpdateRequest.addObject("userp", data);
                 viewUpdateRequest.addObject("layout", resource.getLayout());
-                viewUpdateRequest.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
+                viewUpdateRequest.addObject("view",resource.getDirViews()+"request/success.vm" );
                 viewUpdateRequest.addObject("data",data);
                 
                 return viewUpdateRequest;

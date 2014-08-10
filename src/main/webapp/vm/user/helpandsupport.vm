@@ -8,109 +8,116 @@
     <br>
         <div class="row">
             <div class="col-sm-8">
-               <h4> <strong> Soluciones m&aacutes frecuentes<strong> </h4>
+               <h4> <strong> Preguntas frecuentes<strong> </h4>
                 
                 <ul class="nav" id="accordion">
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">&#191;Qu&eacute; es es VoIP&#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">&#191;Es segura mi informaci&oacute;n con su aplicaci&oacute;n&#63;</a>
                         <div id="collapse1" class="panel-collapse collapse">
-                            Voz sobre Protocolo de Internet (VoIP) es una tecnolog&iacute;a de entrega de comunicaciones de voz y multimedia a trav&eacute;s de Internet. Se requiere una 
-                            conexi&oacute;n de red de calidad razonable para realizar llamadas telef&oacute;nicas a trav&eacute;s de Internet.
+                            S&iacute;, porque introduce un sistema &uacute;nico de blindaje para comunicaci&oacute;n para uso en todo tipo de celulares, con base de algoritmos  de encriptamiento (proceso para leer mensajes).
                         </div>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">&#191;C&oacute;mo se pueden proteger las llamadas del celular de espionaje &#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">&#191;El proceso d&aacute; confiabilidad para m&iacute; celular&#63;</a>
                         <div id="collapse2" class="panel-collapse collapse">
-                            Si usted tiene un tel&oacute;fono con Android, iPhone, Blackberry o PC, suscribirse a uno de nuestros planes de precios, descargar e instalar el software cliente gratuito, 
-                            introduzca sus datos de acceso recibidas por correo electr&oacute;nico de nosotros, y  est&aacute; listo para comenzar a hacer llamadas telef&oacute;nicas VoIP seguras a sus amigos, 
-                            compa&ntilde;eros de trabajo, etc.
+                            S&iacute;, este es un proceso en el cual se realiza:
+                            <ul >
+								<li>La se&ntilde;al es codificada (en base a algoritmos de encriptaci&oacute;n) para la informaci&oacute;n que entra y sale.</li>
+								<li>El m&eacute;todo es autom&aacute;tico (no requiere instalaci&oacute;n de software alguno en aparato).</li>
+								<li>Funciona en cualquier aparato m&oacute;vil, ya sea de tecnolog&iacute;a reciente o aparatos m&oacute;viles m&aacute;s antiguos.</li>
+							</ul>
                         </div>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">&#191;Qu&eacute; tipo de codificaci&oacute;n utilizan&#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Al momento de instalar la aplicaci&oacute;n, &#191;La informaci&oacute;n es protegida a los ataques externos&#63;</a>
                         <div id="collapse3" class="panel-collapse collapse">
-                           La red utiliza SIP sobre TLS para el cifrado de se&ntilde;alizaci&oacute;n. Cada cliente del tel&eacute;fono tiene sus propias opciones de intensidad de cifrado.
+                           S&iacute;, el encriptamiento utilizado por Perseo trabaja a 69000bits, gracias a su sistema permite una protecci&oacute;n continua a 3.7 mil&eacute;simas de segundo. Esto significa que los hackers solo tienen 0.0037 segundos para decriptar el algoritmo para poder leerlo.
                         </div>
-                    
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">&#191;C&oacute;mo puedo probar que mis llamadas son encriptadas &#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Para realizar llamadas a otros tel&eacute;fonos, &#191;Es necesario que posean el mismo sistema de encriptaci&oacute;n&#63;</a>
                         <div id="collapse4" class="panel-collapse collapse">
-                            Aqu&iacute; se muestran dos m&eacute;todos
-                            <br/>
-                            M&eacute;todo 1 (dura): el tr&aacute;fico de voz de intercepci&oacute;n entre dos usuarios de nuestra red VoIP y asegurarse de que el tr&aacute;fico de voz no se env&iacute;a en el modo normal.
-                            <br/>
-                            M&eacute;todo 2: Cuando dos usuarios est&aacute;n conectados, ver&aacute; un algoritmo de candado y de cifrado utilizado para proteger su conexi&oacute;n. Debido a que las aplicaciones cliente son de c&oacute;digo abierto y libre para todo el mundo por lo tanto se garantiza que la aplicaci&oacute;n no tiene puertas traseras y en efecto, establecer una conexi&oacute;n cifrada nivel militar.
+                           No, porque es el &uacute;nico sistema en el cual se puede hablar sin requerir el sistema de encriptaci&oacute;n.
                         </div>
+                    </li>
                     
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">&#191;Los protocolos de Perseo act&uacute;an con la seguridad internacional&#63;</a>
+                        <div id="collapse5" class="panel-collapse collapse">
+                           S&iacute;, para la protecci&oacute;n de computadoras, datos e informaci&oacute;n corporativa, transacciones de servicios financieros e informaci&oacute;n gubernamental.
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">&#191;Cu&aacute;les son las caracter&iacute;sticas principales del sistema para adquirirlo&#63;</a>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <ul >
+								<li>Algoritmo de encriptaci&oacute;n a 69000 bits.</li>
+								<li>Instalaci&oacute;n f&aacute;cil en cualquier dispositivo de comunicaci&oacute;n m&oacute;vil como: iPhone, iPad, BlackBerry, Smartphones con sistema Android, adem&aacute;s de celulares tradicionales.</li>
+								<li>Sistema que trabaja en segundo plano, sin obstrucci&oacute;n, con total integraci&oacute;n en el sistema operativo del dispositivo.</li>
+								<li>Cobertura total en llamadas locales, nacionales e internacionales.</li>
+								<li>Protege: llamadas de voz, mensajes de texto, envio de archivos, adem&aacute;s de la transferencia de datos en redes WiFi.</li>
+								<li>
+									Compatible con las siguientes redes de comunicaci&oacute;n:
+									<br/>
+									GSM/CDMA
+									<br/>
+									2G
+									<br/>
+									3G
+									<br/>
+									4G
+									<br/>
+									GPRS
+									<br/>
+									EDGE
+									<br/>
+									UMTS
+								</li>
+							</ul>
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">&#191;Es posible hacer v&iacute;deo llamadas&#63;</a>
+                        <div id="collapse7" class="panel-collapse collapse">
+                           No
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">&#191;Existe alg&uacute;n costo adicional al usar el servicio&#63;</a>
+                        <div id="collapse8" class="panel-collapse collapse">
+                           Existen solamente dos paquetes del servicio que si tienen costo y hay uno que solamente es de prueba de 15 d&iacute;as
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">&#191;Existe alg&uacute;n l&iacute;mite en el servicio de datos y llamadas&#63;</a>
+                        <div id="collapse9" class="panel-collapse collapse">
+                           No
+                        </div>
+                    </li>
+                    
+                    <li>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">&#191;Protegen cualquier tipo de celular&#63;</a>
+                        <div id="collapse10" class="panel-collapse collapse">
+                           S&iacute;
+                        </div>
                     </li>
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">&#191;C&oacute;mo  llamo a mis amigos, compa&ntilde;eros de trabajo, etc &#63;</a>
-                        <div id="collapse5" class="panel-collapse collapse">
-                            Para realizar llamadas seguras, a sus amigos o compa&ntilde;eros de trabajo tienen que inscribirse en nuestro servicio tambi&eacute;n. Para confirmar su seguridad llamada, nuestro servicio no puede realizar llamadas a tel&eacute;fonos fijos o n&uacute;meros de tel&eacute;fono de la tarjeta SIM en las redes celulares. 
-                            Las llamadas encriptadas est&aacute;n soportadas en tan s&oacute;lo nuestra red VoIP. 
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">&#191;Tiene su VoIP trabajo cifrado en mi m&oacute;vil &#63;</a>
-                        <div id="collapse6" class="panel-collapse collapse">
-                        &#161;S&iacute;&#33; Nuestra soluci&oacute;n de VoIP seguro encriptado funciona en todos los tel&oacute;fonos inteligentes (Blackberry, iPhone, Nokia y Android) y cada escritorio (Mac, PC y Linux).
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Mi conexi&oacute;n VoIP segura es ahora inactiva. &#191;Qu&eacute; pas&oacute; &#63;</a>
-                        <div id="collapse7" class="panel-collapse collapse">
-                            Parece que est&aacute;s tratando de conectarse a trav&eacute;s de una conexi&oacute;n de red 3G o 4G. Compruebe la configuraci&oacute;n de conexi&oacute;n de Internet. Le recomendamos que utilice Wi-Fi para conectarse a nuestra red VoIP seguro.
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">&#191;Se pueden grabar las llamadas telef&oacute;nicas VoIP y son seguras &#63;</a>
-                        <div id="collapse8" class="panel-collapse collapse">
-                            Las llamadas telef&oacute;nicas dentro de nuestra red VoIP cifrado no se pueden grabar por nosotros o por cualquier otra parte, porque todas las llamadas son de extremo a extremo de cifrado y no pasan por nuestros servidores de conexi&oacute;n. S&oacute;lo usted o la persona que est&aacute; hablando puede grabar su conversaci&oacute;n en curso pulsando un bot&oacute;n de grabaci&oacute;n en su / tel&eacute;fono.
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">&#191;Est&aacute; ingresando los datos (llamadas, tiempo, duraci&oacute;n de la llamada, etc.) &#63;</a>
-                        <div id="collapse9" class="panel-collapse collapse">
-                            Nuestra red VoIP registra informaci&oacute;n t&eacute;cnica necesaria para ejecutar el servicio. Los usuarios de nuestra red de VoIP no pueden ser identificados por los datos registrados. No hay informaci&oacute;n de identificaci&oacute;n personal y se registra en absoluto.
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">&#191;Es posible hacer llamadas de video &#63;</a>
-                        <div id="collapse10" class="panel-collapse collapse">
-                            No por el momento
-                        </div>
-                    <li/>
-                    <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">&#191;Mi smartphone Android no me permite instalar la aplicaci&oacute;n  &#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse11">&#191;C&oacute;mo tramito una factura&#63;</a>
                         <div id="collapse11" class="panel-collapse collapse">
-                            Descargarlo directamente del sitio web del desarrollador. Aseg&uacute;rese de habilitar su tel&eacute;fono para instalar aplicaciones. En el men&uacute; del tel&eacute;fono vaya a Configuraci&oacute;n -> Aplicaciones. Seg&uacute;n fuentes desconocidas, aseg&uacute;rese de que la casilla est&aacute; marcada. P&oacute;ngase en contacto con nosotros si no est&aacute; seguro y estaremos encantados de ayudarle.
+                           Se tramita mediante un env&iacute;o de correo para realizar el dep&oacute;sito al banco.
                         </div>
-                    <li/>
+                    </li>
                     <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">&#191;Existen cargos ocultos o costos adicionales para utilizar su servici &#63;</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse12">&#191;De qu&eacute; me protegen&#63;</a>
                         <div id="collapse12" class="panel-collapse collapse">
-                            Usted paga la cuota de suscripci&oacute;n basado en s&oacute;lo su plan de precios. Usted puede cobrar por la conexi&oacute;n a Internet, especialmente cuando se utilizan 3G, 4G o GSM por su proveedor de red celular. Si no est&aacute; seguro, p&oacute;ngase en contacto con su proveedor de red con respecto a los costos de uso de Internet. Se recomienda encarecidamente el uso de la conexi&oacute;n Wi-Fi a Internet al realizar llamadas VoIP seguras v&iacute;a nuestra red privada, ya que mejorar&aacute; en gran medida la calidad de voz, la latencia de la red, y en la mayor&iacute;a de los casos, &#161;es gratis!
+                           De datos personales e informaci&oacute;n del celular.
                         </div>
-                    <li/>
-                      <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse13">&#191;Apoya usted la mensajer&iacute;a de texto (SMS) a trav&eacute;s de la red de VoIP encriptado&#63;</a>
-                        <div id="collapse13" class="panel-collapse collapse">
-                            No por el momento. Sin embargo, tenemos la intenci&oacute;n de a&ntilde;adir esta funci&oacute;n en el futuro cercano.
-                        </div>
-                    <li/>
-                      <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse14">&#191;C&oacute;mo se configura el servicio de VoIP segura en un dispositivo Android &#63;</a>
-                        <div id="collapse14" class="panel-collapse collapse">
-                            Basta con instalar la aplicaci&oacute;n y a&ntilde;adir su informaci&oacute;n de la cuenta VoIP seguro para conectarse a nuestra red.
-                        </div>
-                    <li/>
-                      <li>
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse15">&#191;C&oacute;mo puedo configurar el servicio en un iPhone o iPad &#63;</a>
-                        <div id="collapse15" class="panel-collapse collapse">
-                            Con el fin de conectarse a nuestra red VoIP segura, usted tendr&aacute; que tener las Acrobits o aplicaci&oacute;n Cord&oacute;n conductor y a&ntilde;adir su informaci&oacute;n de la cuenta VoIP seguro. Tenga en cuenta que, lamentablemente, todav&iacute;a no es un cliente de VoIP gratuitos o de fuente abierta para iOS y esta versi&oacute;n cuesta dinero. M&aacute;s informaci&oacute;n se puede encontrar aqu&iacute;
-                        </div>
-                    <li/>
+                    </li>
+                    
                 </ul>
                 <br/>
             </div>
@@ -118,8 +125,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong> Contactanos a</strong></div>
                     <div class="panel-body text-center">
-                        <p><span class="glyphicon glyphicon-earphone"></span> 01 800 50505<p>
-                        <p><span class="glyphicon glyphicon-envelope"></span> soporte@perseo.com<p>
+                        <!-- <p><span class="glyphicon glyphicon-earphone"></span><p> -->
+                        <p><span class="glyphicon glyphicon-envelope"></span> soporte@perseosecurity.com<p>
                         <hr/>
                         <span class="glyphicon glyphicon-comment"><a href="contact"> Dejanos tus dudas o comentarios</a></span>
                     </div>

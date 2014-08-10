@@ -107,13 +107,8 @@
                                 #end
                                 <hr>
                                 <div class="col-sm-12 text-right">
-									
-                                    #if ($data.statuscode==0)
-                                        <a data-toggle="modal"  data-target="#verifyUser" href="#services/canceled.json" class="btn btn-info" > Cancelar </a>
-                                    #end
-				    				
+				 				
                                     #if ($data.statuscode==1)
-                                        <a data-toggle="modal"  data-target="#verifyUser" href="#services/canceled.json" class="btn btn-info" > Cancelar </a>
                                         <a data-toggle="modal"  data-target="#verifyUser" href="#services/suspend.json" class="btn btn-info" > Suspender </a>
                                     #end
                                     

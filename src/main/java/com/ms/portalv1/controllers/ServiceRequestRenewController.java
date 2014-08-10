@@ -249,12 +249,12 @@ public class ServiceRequestRenewController {
                 
                 //data.put("new", "true");
                 //data.put("panel", "false");
-                data.put("msj", msj_envio);
+                data.put("message", "La renovaci&oacute; de la solicitud <strong>"+folio+"</strong> se a dado de alta correctamente");
                 
                 x = new ModelAndView("index");
                 x = x.addObject("userp", data);
                 x = x.addObject("layout", resource.getLayout());
-                x = x.addObject("view",resource.getDirViews()+"request/searchrequest.vm" );
+                x = x.addObject("view",resource.getDirViews()+"request/success.vm" );
                 x = x.addObject("data",data);
                 
                 

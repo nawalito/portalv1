@@ -16,7 +16,7 @@
                     #springFormHiddenInput("user.id" " ")
 
                     <div class="form-group ">
-                        <label for="email" class="col-sm-12">Email</label>
+                        <label for="email" class="col-sm-12">* Email</label>
                         <div class="col-sm-12 ">
                             #springFormInput("user.email" "class='form-control' autofocus placeholder='Email'")
                             #springShowErrors("<br />", "error")
@@ -24,7 +24,7 @@
                     </div>
                     
                     <div class="form-group ">
-                        <label for="email" class="col-sm-12">Alias</label>
+                        <label for="email" class="col-sm-12">* Alias</label>
                         <div class="col-sm-12 ">
                             #springFormInput("user.alias" "class='form-control' placeholder='Alias'")
                             #springShowErrors("<br />", "error")
@@ -32,7 +32,7 @@
                     </div>
                     
                     <div class="form-group ">
-                        <label for="email" class="col-sm-12">Usuario</label>
+                        <label for="email" class="col-sm-12">* Usuario</label>
                         <div class="col-sm-12 ">
                             #springFormInput("user.userName" "class='form-control' placeholder='Usuario'")
                             #springShowErrors("<br /> <span>", "error")
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group ">
-                        <label for="email" class="col-sm-12">Contrase&ntilde;a</label>
+                        <label for="email" class="col-sm-12">* Contrase&ntilde;a</label>
                         <div class="col-sm-12 ">
                             #springFormPasswordInput("user.pass" "class='form-control' placeholder='Contrase&ntilde;a'")
                             #springShowErrors("<br />", "error")
@@ -48,7 +48,7 @@
                     </div>
                     
                     <div class="form-group ">
-                        <label for="email" class="col-sm-12">Confirmar Contrase&ntilde;a</label>
+                        <label for="email" class="col-sm-12">* Confirmar Contrase&ntilde;a</label>
                         <div class="col-sm-12 ">
                             #springFormPasswordInput("user.confirmPass" "class='form-control' placeholder='Confirmar Contrase&ntilde;a'")
                             #springShowErrors("<br />", "error")

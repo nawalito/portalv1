@@ -47,7 +47,6 @@ public class UserValidator implements Validator{
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName","required.userName", "El campo Nombre de Usuario es necesario.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "pass", "required.pass", "El campo Password es necesario.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPass","required.confirmPass", "El campo Confirmar Password es necesario.");
-//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "noRef", "required.noRef", "El campo Numero de Referencia es necesario.");
         
         User usr = (User)target;
         
@@ -86,18 +85,16 @@ public class UserValidator implements Validator{
             }
         }
         
-//        if(!usr.getNoRef().isEmpty() && !usr.getNoRef().trim().equals("")){
-//            if(!usr.getNoRef().matches(PATTERN_NUMERIC)){
-//                errors.rejectValue("noRef", "notvalid.noRef");
-//            }else{
-//                //Valida que exista un numero de referencia valido
-//                if(this.getUserDao().countNumeroReferecia(usr.getNoRef())<=0){
-//                    errors.rejectValue("noRef", "notexists.noRef");
-//                }
-//            }
-//        }
-
-        
+        if(!usr.getNoRef().isEmpty() && !usr.getNoRef().trim().equals("")){
+            if(!usr.getNoRef().matches(PATTERN_NUMERIC)){
+                errors.rejectValue("noRef", "notvalid.noRef");
+            }else{
+                //Valida que exista un numero de referencia valido
+                if(!this.getUserDao().countNumeroReferecia(usr.getNoRef())){
+                    errors.rejectValue("noRef", "notexists.noRef");
+                }
+            }
+        }
+ 
     }
-    
 }

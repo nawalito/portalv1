@@ -293,12 +293,11 @@ public class ActionsServiceRequestController {
                                             + "<td>"
                                                 
                                                 + "<table style=\"width:700px;\" class=\"panel\">"
-                                                    + "<thead>"
+                                                    +"<thead></thead>"
+                                                   + "<tbody>"
                                                         + "<tr>"
-                                                            + "<th>FOLIO</th><th>ESTADO</th>"
-                                                        + "</tr>"
-                                                    + "</thead>"
-                                                    + "<tbody>";
+                                                            + "<td><strong>FOLIO</strong></td><td><strong>ESTADO</strong></td>"
+                                                        + "</tr>";
                                                         
                                                         for( LinkedHashMap<String,String> i : arrayData){
                                                             htmlText += "<tr><td>"+i.get("folio")+"</td><td>&nbsp;&nbsp;&nbsp;"+i.get("estatus")+"</td></tr>";
@@ -368,7 +367,7 @@ public class ActionsServiceRequestController {
             
             //si laoperacion fue exitosa
             jsonretorno.put("success", true);
-            jsonretorno.put("message", "Folios enviados al correo de usuario");
+            jsonretorno.put("message", "Folios enviados");
             
         } else {//si el token no coincide con lo obtenido de la vista no se realiza la operacion
             jsonretorno.put("success", false);

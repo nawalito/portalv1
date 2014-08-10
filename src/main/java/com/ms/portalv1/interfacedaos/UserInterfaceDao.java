@@ -22,7 +22,7 @@ public interface UserInterfaceDao {
     public int countAliasIsNotUser(String alias, String idCod);
     public int countEmail(String email);
     public int countEmailIsNotUser(String email, String idCod);
-    public int countNumeroReferecia(String no_ref);
+    public Boolean countNumeroReferecia(String no_ref);
     public int countUserCode(String username, String codeverif);
     public String getUserIdEncod(String usename);
     public int countCurrentPasswordUser(String currentPasswd, String idcod);
@@ -30,4 +30,5 @@ public interface UserInterfaceDao {
     public int countUserRequest(String idCod);
     
     public int verifUsernamePasswd(String username, String passwd);
+    public Boolean accountActivatedOrExist(String userIdentifier,Boolean verifyUser);
 }

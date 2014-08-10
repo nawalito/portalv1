@@ -6,6 +6,7 @@ package com.ms.portalv1.springdaos;
 
 import com.ms.common.helpers.generaMD5;
 import com.ms.portalv1.interfacedaos.UserInterfaceDao;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -185,8 +186,12 @@ public class UserSpringDao implements UserInterfaceDao {
     }
     
     @Override
-    public int countNumeroReferecia(String no_ref) {
-        return this.getJdbcTemplate().queryForInt("select count(noref) from sys_usr where noref=" + no_ref + ";");
+    public Boolean countNumeroReferecia(String no_ref) {
+        Boolean existDealer=false;
+        String sql="SELECT case when count(id)>0 then true else false end as existCodeDealer FROM gral_dealer where code=?;";
+        existDealer= this.jdbcTemplate.queryForObject(sql,new Object[]{no_ref}, Boolean.class); 
+        
+        return existDealer;
     }
     
     @Override
@@ -262,5 +267,22 @@ public class UserSpringDao implements UserInterfaceDao {
         return this.getJdbcTemplate().queryForInt("select count(id) from sys_usr where username='" + username.trim() + "' and password='" + generaMD5.MD5(passwd) + "';");
     }
     
-    
+    @Override
+    public Boolean accountActivatedOrExist(String userIdentifier,Boolean verifyUser){
+        
+        Boolean isActivatedOrExist;
+        String sql;
+        
+        if(verifyUser){
+            sql= "select CASE WHEN count(id)>0 THEN true ELSE false END AS existUser  from sys_usr where encod =?;";
+            
+        }else{
+            sql="select CASE WHEN sys_usr.status=0 and sys_usr.enabled=0 THEN false ELSE true END AS activated from sys_usr where sys_usr.encod=?";
+        }
+        
+        isActivatedOrExist= this.jdbcTemplate.queryForObject(sql,new Object[]{userIdentifier}, Boolean.class); 
+        
+        return isActivatedOrExist;
+        
+    }   
 }

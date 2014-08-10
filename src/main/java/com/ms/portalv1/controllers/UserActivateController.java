@@ -130,30 +130,36 @@ public class UserActivateController {
     public String initForm(HttpServletRequest request, ModelMap model){
         HashMap<String, Object> data = new HashMap<>();
         System.out.println("initFormActivate");
+        Boolean existUser=false;
+        Boolean accountIsActivated=false;
+        existUser = this.getUserDao().accountActivatedOrExist(request.getParameter("user"),true);
+        if(existUser){//se verifica que el identifier del usario exista
+            accountIsActivated = this.getUserDao().accountActivatedOrExist(request.getParameter("user"),false);
+            if(accountIsActivated==false){//se verifica que la cuenta no este activa
+                UserActivate usa = new UserActivate();
+                usa.setUser(request.getParameter("user"));
+                
+                //Mostrar aciones
+                data.put("create_account", false);
+                data.put("login", false);
+                data.put("panel", false);
+                data.put("profile", false);
+                data.put("logout", false);
+                data.put("activate",true);
+
+                //Command object
+                model.addAttribute("activate", usa);
+                model.addAttribute("layout", resource.getLayout());
+                model.addAttribute("view",resource.getDirViews()+"user/activate.vm" );
+                model.addAttribute("data",data);
+
+                //return form view
+                return "index";
+            }
+        }
         
-        UserActivate usa = new UserActivate();
-        usa.setUser(request.getParameter("user"));
-        //usa.setCode(request.getParameter("code"));
+        return "redirect:home";
         
-        //System.out.println("ParameterUser: "+request.getParameter("user"));
-        //System.out.println("ParameterCode: "+request.getParameter("code"));
-        
-        //Mostrar aciones
-        data.put("create_account", false);
-        data.put("login", false);
-        data.put("panel", false);
-        data.put("profile", false);
-        data.put("logout", false);
-        data.put("activate",true);
-        
-        //Command object
-        model.addAttribute("activate", usa);
-        model.addAttribute("layout", resource.getLayout());
-        model.addAttribute("view",resource.getDirViews()+"user/activate.vm" );
-        model.addAttribute("data",data);
-        
-        //return form view
-        return "index";
     }
     
     
