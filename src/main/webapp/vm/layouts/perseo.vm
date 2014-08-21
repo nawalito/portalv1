@@ -46,7 +46,7 @@
                         #else
                         <ul class="nav navbar-nav navbar-right">
                         <li><a target="_blank" class="btn" href="../pdf/PERSEO.pdf">Brochure</a></li></li>
-                        <li> <a  class="btn" href="docs">Documentaci&oacute;n</a></li>
+                        <li> <a  target="_blank" class="btn" href="../pdf/manual-de-usuario.pdf">Documentaci&oacute;n</a></li>
                         <li> <a  class="btn" href="ayuda">Ayuda y soporte</a></li>
                         <li>
                             
